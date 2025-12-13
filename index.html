@@ -26,7 +26,8 @@
                 <img src="assets/icon_48.png" alt="Verse Guard" class="logo-icon">
                 <span>Verse Guard</span>
             </a>
-            <div class="nav-links">
+            <!-- Desktop nav links (inside navbar) -->
+            <div class="nav-links nav-links-desktop">
                 <a href="#features">Features</a>
                 <a href="#philosophy">Philosophy</a>
                 <a href="#roadmap">Roadmap</a>
@@ -41,8 +42,17 @@
         </div>
     </nav>
 
-    <!-- Mobile nav overlay -->
+    <!-- Mobile nav overlay (outside navbar for z-index) -->
     <div class="nav-overlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Mobile nav menu (outside navbar for z-index) -->
+    <div class="nav-links nav-links-mobile">
+        <a href="#features">Features</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="#" class="btn btn-primary" onclick="openWaitlistModal(event)">Join Waitlist</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -369,7 +379,7 @@
 
         // Mobile Navigation Toggle
         const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const navLinks = document.querySelector('.nav-links-mobile');
         const navOverlay = document.querySelector('.nav-overlay');
 
         navToggle.addEventListener('click', () => {

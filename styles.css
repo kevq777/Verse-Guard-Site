@@ -1801,13 +1801,24 @@ h6 {
 /* ==========================================
    MOBILE NAVIGATION
    ========================================== */
+/* Mobile menu - hidden by default on desktop */
+.nav-links-mobile {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .nav-toggle {
         display: flex;
         z-index: 1002;
     }
 
-    .nav-links {
+    /* Hide desktop nav on mobile */
+    .nav-links-desktop {
+        display: none !important;
+    }
+
+    /* Mobile nav menu - outside navbar for proper z-index */
+    .nav-links-mobile {
         display: flex;
         position: fixed;
         top: 0;
@@ -1824,18 +1835,18 @@ h6 {
         z-index: 1001;
     }
 
-    .nav-links.active {
+    .nav-links-mobile.active {
         right: 0;
     }
 
-    .nav-links a {
+    .nav-links-mobile a {
         font-size: 1.1rem;
         padding: var(--space-3) 0;
         width: 100%;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .nav-links a.btn-primary {
+    .nav-links-mobile a.btn-primary {
         margin-top: var(--space-4);
         width: 100%;
         text-align: center;
