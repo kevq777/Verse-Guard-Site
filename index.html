@@ -41,6 +41,9 @@
         </div>
     </nav>
 
+    <!-- Mobile nav overlay -->
+    <div class="nav-overlay" onclick="closeMobileMenu()"></div>
+
     <!-- Hero Section -->
     <section class="hero">
         <!-- Animated background blobs -->
@@ -54,11 +57,6 @@
             <div class="cloud cloud-1"></div>
             <div class="cloud cloud-2"></div>
             <div class="cloud cloud-3"></div>
-
-            <!-- Doves -->
-            <div class="dove dove-1">🕊️</div>
-            <div class="dove dove-2">🕊️</div>
-            <div class="dove dove-3">🕊️</div>
 
             <!-- Waves -->
             <div class="wave wave-1"></div>
@@ -367,6 +365,30 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        function closeMobileMenu() {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close mobile menu when clicking nav links
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // Smooth scroll for anchor links
