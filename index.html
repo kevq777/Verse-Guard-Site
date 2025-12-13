@@ -394,20 +394,29 @@
         // Smooth scroll for anchor links (with mobile menu close)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const href = this.getAttribute('href');
+
+                // Skip if just "#" (like waitlist button)
+                if (href === '#') {
+                    return; // Let the onclick handler deal with it
+                }
+
+                e.preventDefault();
 
                 // Close mobile menu first
                 closeMobileMenu();
 
-                // Then scroll after a brief delay
-                if (href !== '#') {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        setTimeout(() => {
-                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }, 100);
-                    }
+                // Scroll after menu animation completes
+                const target = document.querySelector(href);
+                if (target) {
+                    setTimeout(() => {
+                        const navHeight = 80;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
                 }
             });
         });
