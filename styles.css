@@ -966,15 +966,132 @@ h6 {
     font-family: serif;
 }
 
-.hero-cross-logo {
+/* Pure CSS Cross */
+.hero-css-cross {
     position: relative;
     z-index: 2;
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 40px rgba(37, 99, 235, 0.5)) drop-shadow(0 0 60px rgba(212, 175, 55, 0.3));
+    width: 40px;
+    height: 140px;
+    background: linear-gradient(180deg, #3b82f6 0%, #1e40af 50%, #1e3a8a 100%);
+    border-radius: 8px;
     animation: float 6s ease-in-out infinite;
+    box-shadow:
+        0 0 30px rgba(59, 130, 246, 0.6),
+        0 0 60px rgba(37, 99, 235, 0.4),
+        0 0 100px rgba(212, 175, 55, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.hero-css-cross::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+    border-radius: 8px;
+    box-shadow:
+        0 0 30px rgba(59, 130, 246, 0.6),
+        0 0 60px rgba(37, 99, 235, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Gold accent glow on cross */
+.hero-css-cross::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.9) 0%, rgba(245, 158, 11, 0.5) 50%, transparent 70%);
     border-radius: 50%;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+}
+
+/* Pure CSS Dove */
+.hero-css-dove {
+    position: absolute;
+    z-index: 2;
+    width: 160px;
+    height: 120px;
+    top: -20px;
+    right: 80px;
+    animation: doveFloat 8s ease-in-out infinite;
+    filter: drop-shadow(0 10px 30px rgba(37, 99, 235, 0.4)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.3));
+}
+
+/* Dove body */
+.hero-css-dove::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, #c7d2fe 100%);
+    border-radius: 50% 50% 40% 50%;
+    top: 35px;
+    left: 40px;
+    box-shadow:
+        inset -5px -5px 20px rgba(99, 102, 241, 0.2),
+        0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Dove head */
+.hero-css-dove::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 30px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    border-radius: 50%;
+    top: 30px;
+    left: 95px;
+    box-shadow:
+        inset -3px -3px 10px rgba(99, 102, 241, 0.15),
+        0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Dove wing (using a wrapper pseudo on hero-visual) */
+.hero-visual::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    width: 90px;
+    height: 60px;
+    background: linear-gradient(180deg, #ffffff 0%, #c7d2fe 100%);
+    top: calc(50% - 55px);
+    right: calc(50% - 130px);
+    border-radius: 80% 80% 20% 20%;
+    transform: rotate(-25deg);
+    animation: wingFlap 2s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes doveFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+@keyframes wingFlap {
+
+    0%,
+    100% {
+        transform: rotate(-25deg) scaleY(1);
+    }
+
+    50% {
+        transform: rotate(-15deg) scaleY(0.85);
+    }
 }
 
 /* ==========================================
