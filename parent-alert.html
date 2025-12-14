@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verse Guard - Protection Removed</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="assets/icon_128.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Design Tokens - Aligned with main styles.css */
+        :root {
+            --color-bg: #0a0a0f;
+            --color-bg-card: rgba(255, 255, 255, 0.03);
+            --color-text: #e2e8f0;
+            --color-text-muted: #94a3b8;
+            --color-text-light: #f1f5f9;
+            --color-primary: #3b82f6;
+            --color-primary-dark: #2563eb;
+            --color-accent-gold: #d4af37;
+            --color-danger: #ef4444;
+            --color-info: #93c5fd;
+            --gradient-primary: linear-gradient(135deg, #3b82f6, #2563eb);
+            --shadow-glow-blue: 0 8px 24px rgba(59, 130, 246, 0.4);
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --font-display: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition-base: 300ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--color-bg);
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, var(--color-bg) 70%);
+            font-family: var(--font-body);
+            color: var(--color-text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .alert-container {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .alert-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-danger);
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+
+        .alert-message-main {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .alert-message-secondary {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .reminder-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: var(--radius-lg);
+            margin-bottom: 32px;
+        }
+
+        .reminder-icon {
+            font-size: 1.5rem;
+        }
+
+        .reminder-text {
+            font-size: 0.95rem;
+            color: var(--color-info);
+        }
+
+        .btn-reinstall {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: var(--radius-lg);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-reinstall:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 48px;
+            opacity: 0.5;
+        }
+
+        .footer img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .alert-message-main {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alert-container">
+        <div class="alert-icon">🚨</div>
+
+        <h1>WHOA! YOU REMOVED YOUR PROTECTION!</h1>
+
+        <p class="alert-message-main">
+            <strong>Your parent or guardian will know about this.</strong>
+        </p>
+
+        <p class="alert-message-secondary">
+            When they check the extension, they'll see it was removed.
+            If this was an accident, ask them to reinstall it right away.
+        </p>
+
+        <div class="reminder-box">
+            <span class="reminder-icon">💬</span>
+            <span class="reminder-text">Remember: Telling the truth is always the right thing to do.</span>
+        </div>
+
+        <!-- TODO: Replace with actual Chrome Web Store URL when extension is published -->
+        <!-- Example: 'https://chrome.google.com/webstore/detail/verse-guard/YOUR_EXTENSION_ID' -->
+        <a href="https://verseguard.app" class="btn-reinstall" target="_blank">
+            🛡️ Ask a Parent to Reinstall
+        </a>
+
+        <div class="footer">
+            <img src="assets/icon_48.png" alt="Verse Guard" onerror="this.style.display='none'">
+            <p class="footer-text">Verse Guard - Protecting what matters</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verse Guard - Departure</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="assets/icon_128.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Design Tokens - Aligned with main styles.css */
+        :root {
+            --color-bg: #0a0a0f;
+            --color-bg-card: rgba(255, 255, 255, 0.03);
+            --color-text: #e2e8f0;
+            --color-text-muted: #94a3b8;
+            --color-text-light: #f1f5f9;
+            --color-primary: #3b82f6;
+            --color-primary-dark: #2563eb;
+            --color-accent-gold: #d4af37;
+            --color-accent-gold-light: #f0d060;
+            --color-success: #10b981;
+            --color-danger: #ef4444;
+            --gradient-primary: linear-gradient(135deg, #3b82f6, #2563eb);
+            --gradient-gold: linear-gradient(90deg, #d4af37, #f0d060, #d4af37);
+            --shadow-glow-blue: 0 8px 24px rgba(59, 130, 246, 0.4);
+            --shadow-glow-gold: 0 0 20px rgba(212, 175, 55, 0.3);
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px;
+            --font-display: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Cinzel', serif;
+            --transition-base: 300ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--color-bg);
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, var(--color-bg) 70%);
+            font-family: var(--font-body);
+            color: var(--color-text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* The Letter Card */
+        .letter-card {
+            background: var(--color-bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--radius-2xl);
+            padding: 48px 40px;
+            margin-bottom: 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-glow-gold);
+        }
+
+        .letter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+        }
+
+        .letter-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-accent-gold);
+            letter-spacing: 0.15em;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+        }
+
+        .letter-content {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+            font-style: italic;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+
+        .letter-date {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Reason Selector */
+        .reason-section {
+            text-align: center;
+        }
+
+        .reason-title {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 20px;
+        }
+
+        .reason-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .reason-btn {
+            padding: 16px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            background: var(--color-bg-card);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-align: left;
+        }
+
+        .reason-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-gold);
+        }
+
+        .reason-btn.stumbling {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .reason-btn.stumbling:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+        }
+
+        /* Result Section */
+        .result-section {
+            display: none;
+            text-align: center;
+            padding: 32px;
+            background: var(--color-bg-card);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-section.show {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: var(--color-text);
+        }
+
+        .result-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: var(--radius-lg);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            color: var(--color-text-muted);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-text);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Peace Message */
+        .peace-message {
+            color: var(--color-success);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 48px;
+            text-align: center;
+            opacity: 0.5;
+        }
+
+        .footer img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .letter-card {
+                padding: 32px 24px;
+            }
+
+            .letter-content {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- The Letter Card -->
+        <div class="letter-card">
+            <h1 class="letter-title" id="letter-title">A MESSAGE FROM YOUR PAST SELF</h1>
+            <p class="letter-content" id="letter-content">
+                "You installed Verse Guard to guard your heart."
+            </p>
+            <p class="letter-date" id="letter-date">— You</p>
+        </div>
+
+        <!-- Reason Selector -->
+        <div class="reason-section" id="reason-selector">
+            <p class="reason-title">Why are you laying down the shield?</p>
+            <div class="reason-buttons">
+                <button class="reason-btn stumbling" onclick="showResult('stumbling')">
+                    😔 I'm stumbling / I want to binge
+                </button>
+                <button class="reason-btn" onclick="showResult('technical')">
+                    🔧 Technical Issue / It's buggy
+                </button>
+                <button class="reason-btn" onclick="showResult('graduated')">
+                    🎓 I no longer need it
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Section (hidden by default) -->
+        <div class="result-section" id="result-section"></div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <img src="assets/icon_48.png" alt="Verse Guard" onerror="this.style.display='none'">
+            <p class="footer-text">Guard your heart. Guard your mind.</p>
+        </div>
+    </div>
+
+    <script>
+        // Decode URL parameter to get letter data
+        function getLetterData() {
+            const params = new URLSearchParams(window.location.search);
+            const encoded = params.get('data');
+
+            if (!encoded) return null;
+
+            try {
+                // Decode Base64 and parse JSON
+                const decoded = decodeURIComponent(escape(atob(encoded)));
+                return JSON.parse(decoded);
+            } catch (e) {
+                console.error('Failed to decode letter data:', e);
+                return null;
+            }
+        }
+
+        // Render the page with user's letter
+        function renderDeparture() {
+            const data = getLetterData();
+
+            if (!data) {
+                // Fallback for missing data
+                document.getElementById('letter-content').textContent =
+                    '"You installed Verse Guard to guard your heart."';
+                return;
+            }
+
+            // Set adaptive title based on goal
+            const titleEl = document.getElementById('letter-title');
+            if (data.goal === 'productivity') {
+                titleEl.textContent = 'REVIEW YOUR OBJECTIVES';
+            } else {
+                titleEl.textContent = 'A MESSAGE FROM YOUR PAST SELF';
+            }
+
+            // Set letter content with quotes
+            document.getElementById('letter-content').textContent = `"${data.letter}"`;
+
+            // Set date
+            if (data.date) {
+                document.getElementById('letter-date').textContent = `— You, on ${data.date}`;
+            }
+        }
+
+        // Handle reason selection
+        function showResult(reason) {
+            document.getElementById('reason-selector').style.display = 'none';
+            const resultEl = document.getElementById('result-section');
+            resultEl.classList.add('show');
+
+            // TODO: Replace with actual Chrome Web Store URL when extension is published
+            // Example: 'https://chrome.google.com/webstore/detail/verse-guard/YOUR_EXTENSION_ID'
+            const storeUrl = 'https://verseguard.app';
+
+            if (reason === 'stumbling') {
+                resultEl.innerHTML = `
+                    <p class="result-message">We understand. You're not alone in this struggle.</p>
+                    <div class="result-buttons">
+                        <a href="${storeUrl}" class="btn-primary" target="_blank">
+                            🛡️ Re-Install the Shield
+                        </a>
+                        <a href="https://988lifeline.org" class="btn-secondary" target="_blank">
+                            🆘 Crisis Resources
+                        </a>
+                    </div>
+                `;
+            } else if (reason === 'technical') {
+                resultEl.innerHTML = `
+                    <p class="result-message">We're sorry to see you go. Thank you for trying Verse Guard.</p>
+                    <div class="result-buttons">
+                        <a href="mailto:stewardguard7@gmail.com?subject=Verse Guard Bug Report" class="btn-secondary">
+                            📧 Report a Bug
+                        </a>
+                    </div>
+                `;
+            } else if (reason === 'graduated') {
+                resultEl.innerHTML = `
+                    <p class="result-message peace-message">Go in peace. We are proud of your growth.<br>You are always welcome back.</p>
+                `;
+            }
+        }
+
+        // Initialize on page load
+        renderDeparture();
+    </script>
+</body>
+
+</html>
