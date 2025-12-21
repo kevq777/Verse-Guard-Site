@@ -1,0 +1,8 @@
+# Verse Guard - robots.txt
+# https://verseguard.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://verseguard.app/sitemap.xml

@@ -2144,6 +2144,156 @@ h6 {
 }
 
 /* ==========================================
+   VANGUARD FOUNDERS SECTION
+   ========================================== */
+.vanguard {
+    background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+}
+
+.vanguard-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vanguard-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+.vanguard-benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    text-align: left;
+    padding: var(--space-5);
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.vanguard-benefit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.vanguard-benefit strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.vanguard-benefit p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.vanguard-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.vanguard-code p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.genesis-code {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: var(--space-4) var(--space-8);
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid var(--color-accent-gold);
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+.genesis-code::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    border-radius: inherit;
+    z-index: -1;
+}
+
+/* ==========================================
+   DOWNLOAD FEATURES
+   ========================================== */
+.download-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.download-feature {
+    text-align: center;
+    padding: var(--space-6);
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
+}
+
+.download-feature span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--space-3);
+}
+
+.download-feature strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.download-feature p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 768px) {
+    .vanguard-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .download-features {
+        grid-template-columns: 1fr;
+    }
+
+    .genesis-code {
+        font-size: 1.5rem;
+        padding: var(--space-3) var(--space-6);
+    }
+}
+
+/* ==========================================
    MOBILE NAVIGATION
    ========================================== */
 /* Mobile menu - hidden by default on desktop */

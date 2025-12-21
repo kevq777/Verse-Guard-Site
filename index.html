@@ -4,12 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verse Guard - Faith-Based Digital Wellness</title>
+    <title>Verse Guard - Faith-Based Digital Wellness | Chrome Extension</title>
     <meta name="description"
-        content="Your companion for intentional Christian living online. Build spiritual habits, steward your time wisely, and grow in digital discipleship.">
+        content="Your companion for intentional Christian living online. Block distractions with Scripture, build spiritual habits, and grow as a digital disciple with AI-powered productivity tools.">
     <meta name="keywords"
-        content="Christian, productivity, faith, bible, discipleship, focus, digital wellness, spiritual growth, scripture, stewardship">
+        content="Christian, productivity, faith, bible, discipleship, focus, digital wellness, spiritual growth, scripture, stewardship, chrome extension, content blocker, accountability, focus timer">
+
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Verse Guard">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://verseguard.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://verseguard.app/">
+    <meta property="og:title" content="Verse Guard - Faith-Based Digital Wellness">
+    <meta property="og:description"
+        content="Your companion for intentional Christian living online. Block distractions with Scripture, build spiritual habits, and grow as a digital disciple.">
+    <meta property="og:image" content="https://verseguard.app/assets/icon_128.png">
+    <meta property="og:site_name" content="Verse Guard">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://verseguard.app/">
+    <meta name="twitter:title" content="Verse Guard - Faith-Based Digital Wellness">
+    <meta name="twitter:description"
+        content="Your companion for intentional Christian living online. Block distractions with Scripture and grow as a digital disciple.">
+    <meta name="twitter:image" content="https://verseguard.app/assets/icon_128.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Verse Guard",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "description": "Faith-based digital wellness Chrome extension for intentional Christian living online. Features Scripture-based content blocking, focus timer, AI productivity tools, and accountability features.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "1"
+        }
+    }
+    </script>
+
     <link rel="icon" type="image/png" href="assets/icon_128.png">
+    <link rel="apple-touch-icon" href="assets/icon_128.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,68 +174,91 @@
                     <div class="feature-icon">🚫</div>
                     <h3>Theme-Based Boundaries</h3>
                     <p>Set healthy limits by category—Adult, Violence, Gambling, Distraction, and more. Moments of
-                        temptation become opportunities for spiritual reflection.</p>
+                        temptation become opportunities for spiritual reflection with Scripture.</p>
                 </div>
                 <div class="feature-card reveal stagger-2">
-                    <div class="feature-icon">⏱️</div>
-                    <h3>Stewardship Focus</h3>
-                    <p>Pomodoro-style Focus Timer with Break Timer and Session Notes. Steward your time with
-                        intention—work as unto the Lord.</p>
+                    <div class="feature-icon">⚜️</div>
+                    <h3>Steward AI</h3>
+                    <p>"Order My Steps" — Tell The Steward your goals, get AI-ordered actionable tasks with biblical
+                        wisdom. Plus AI-powered focus suggestions and weekly insights.</p>
                 </div>
                 <div class="feature-card reveal stagger-3">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Stewardship Focus</h3>
+                    <p>Pomodoro-style Focus Timer with Break Timer, Bible Trivia, and Stewardship Reports. Steward your
+                        time with intention—work as unto the Lord.</p>
+                </div>
+                <div class="feature-card reveal stagger-4">
+                    <div class="feature-icon">📖</div>
+                    <h3>Bible Trivia</h3>
+                    <p>150 questions across Scripture with +5 XP per correct answer. Take a mindful break while growing
+                        in biblical knowledge. 40 free daily, unlimited for Premium.</p>
+                </div>
+                <div class="feature-card reveal stagger-5">
                     <div class="feature-icon">📝</div>
                     <h3>Reflections Diary</h3>
                     <p>Your private mirror for heart-work. Journal when boundaries are tested, review patterns over
                         time, and see sin as diagnostic—not just failure.</p>
                 </div>
-                <div class="feature-card reveal stagger-4">
+                <div class="feature-card reveal stagger-6">
                     <div class="feature-icon">☀️</div>
                     <h3>Daily Spiritual Challenges</h3>
                     <p>Verse of the Day with guided prompts, Prayer Challenges, and streak tracking. Build consistent
                         spiritual disciplines daily.</p>
                 </div>
-                <div class="feature-card reveal stagger-5">
+                <div class="feature-card reveal stagger-1">
                     <div class="feature-icon">🎯</div>
                     <h3>Tasks & Goals</h3>
                     <p>Daily quick tasks, weekly priorities, and monthly goals. Set daily focus targets and track
                         completion with XP rewards.</p>
                 </div>
-                <div class="feature-card reveal stagger-6">
+                <div class="feature-card reveal stagger-2">
                     <div class="feature-icon">⭐</div>
                     <h3>10 Levels & 14 Badges</h3>
                     <p>Progress from Beginner to Verse Guardian. Earn badges like "Prayer Warrior" and "Century Club."
                         Celebrate victories visually.</p>
                 </div>
-                <div class="feature-card reveal stagger-1">
+                <div class="feature-card reveal stagger-3">
                     <div class="feature-icon">🛡️</div>
                     <h3>Shield Partner</h3>
-                    <p>Accountability with dignity. Partners receive weekly updates on victories and streaks—solidarity,
-                        not surveillance.</p>
+                    <p>Accountability with dignity. Shared streaks, weekly victory reports, "Rally" button when
+                        struggling, and Stronghold Mode—30-min bypass lockdown with SOS signal.</p>
                 </div>
-                <div class="feature-card reveal stagger-2">
-                    <div class="feature-icon">🆘</div>
-                    <h3>Crisis Support</h3>
-                    <p>Sensitive themes trigger immediate crisis resources and helpline numbers. Safety first, always.
-                    </p>
+                <div class="feature-card reveal stagger-4">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud Backup</h3>
+                    <p>Never lose your progress. Automatic backup to your Google account preserves diary entries,
+                        badges, and analytics. Easy restoration after reinstall.</p>
                 </div>
-                <div class="feature-card reveal stagger-3">
+                <div class="feature-card reveal stagger-5">
+                    <div class="feature-icon">🎄</div>
+                    <h3>Seasonal Themes</h3>
+                    <p>Festive touches throughout the year. Christmas Spirit with falling snowflakes, festive color
+                        accents, and seasonal verse collections.</p>
+                </div>
+                <div class="feature-card reveal stagger-6">
                     <div class="feature-icon">🎨</div>
                     <h3>Beautiful & Customizable</h3>
                     <p>Dark or light mode with 15 color themes (8 free + level-gated & animated exclusives). A modern
                         interface that inspires.</p>
                 </div>
-                <div class="feature-card reveal stagger-4">
+                <div class="feature-card reveal stagger-1">
                     <div class="feature-icon">🌍</div>
                     <h3>Multi-Language Support</h3>
                     <p>Available in English, Portuguese, Spanish, and French. Scripture displayed in
-                        language-appropriate
-                        Bible versions (NIV, NVI, RVR60, LSG).</p>
+                        language-appropriate Bible versions (NIV, NVI, RVR60, LSG).</p>
                 </div>
-                <div class="feature-card reveal stagger-5">
+                <div class="feature-card reveal stagger-2">
                     <div class="feature-icon">👦</div>
                     <h3>Student Mode</h3>
                     <p>Kid-friendly labels and an age-appropriate interface designed for younger users. Full parental
                         controls coming in V2.</p>
+                </div>
+                <div class="feature-card reveal stagger-3">
+                    <div class="feature-icon">🆘</div>
+                    <h3>Crisis Support</h3>
+                    <p>Sensitive themes trigger immediate crisis resources and helpline numbers. Safety first, always.
+                    </p>
                 </div>
             </div>
         </div>
@@ -254,11 +323,12 @@
 
             <div class="roadmap-timeline">
                 <div class="roadmap-item current reveal stagger-1">
-                    <div class="roadmap-marker">🔜</div>
+                    <div class="roadmap-marker">🚀</div>
                     <div class="roadmap-content">
-                        <h3>Beta Release</h3>
-                        <p>Focus Timer, Daily Challenges, XP System, Shield Partner, Scripture Integration</p>
-                        <span class="roadmap-status">Coming Soon</span>
+                        <h3>Public Launch</h3>
+                        <p>Focus Timer, Steward AI, Daily Challenges, XP System, Shield Partner, Scripture Integration
+                        </p>
+                        <span class="roadmap-status">Launching Soon</span>
                     </div>
                 </div>
                 <div class="roadmap-item upcoming reveal stagger-2">
@@ -276,6 +346,52 @@
                         <p>iOS & Android apps for on-the-go accountability and spiritual habits</p>
                         <span class="roadmap-status">Future</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vanguard Founders Section -->
+    <section id="vanguard" class="vanguard section">
+        <div class="container">
+            <h2 class="section-title reveal">⚔️ Vanguard Founders</h2>
+            <p class="section-subtitle reveal stagger-1">Be among the first 100 believers to join the Vanguard and
+                receive exclusive founder benefits.</p>
+
+            <div class="vanguard-content reveal stagger-2">
+                <div class="vanguard-benefits">
+                    <div class="vanguard-benefit">
+                        <span class="benefit-icon">🎁</span>
+                        <div>
+                            <strong>1 Year Free Premium</strong>
+                            <p>Full access to all features at no cost</p>
+                        </div>
+                    </div>
+                    <div class="vanguard-benefit">
+                        <span class="benefit-icon">🔒</span>
+                        <div>
+                            <strong>Price-Locked Renewals</strong>
+                            <p>Renew at launch prices forever</p>
+                        </div>
+                    </div>
+                    <div class="vanguard-benefit">
+                        <span class="benefit-icon">👑</span>
+                        <div>
+                            <strong>King's Guard Theme</strong>
+                            <p>Exclusive black & gold founder theme</p>
+                        </div>
+                    </div>
+                    <div class="vanguard-benefit">
+                        <span class="benefit-icon">♞</span>
+                        <div>
+                            <strong>Vanguard Trophy & Badge</strong>
+                            <p>Permanent recognition + Guardian Number #1-100</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vanguard-code reveal stagger-3">
+                    <p>Use code at launch:</p>
+                    <code class="genesis-code">GENESIS</code>
                 </div>
             </div>
         </div>
@@ -299,11 +415,23 @@
                 <input type="hidden" name="_subject" value="New Verse Guard Waitlist Signup!">
             </form>
 
-            <p class="download-note reveal stagger-3">
-                <span class="waitlist-count">🎉 Join 100+ believers already waiting!</span><br>
-                Free version includes daily challenges, focus tools, and XP system.<br>
-                Premium unlocks Shield Partner, full analytics, and advanced features.
-            </p>
+            <div class="download-features reveal stagger-3">
+                <div class="download-feature">
+                    <span>🎁</span>
+                    <strong>7-Day Free Trial</strong>
+                    <p>Try all Premium features free — no credit card required</p>
+                </div>
+                <div class="download-feature">
+                    <span>✨</span>
+                    <strong>Free Forever</strong>
+                    <p>Core features always free: blocking, focus tools, XP system</p>
+                </div>
+                <div class="download-feature">
+                    <span>💎</span>
+                    <strong>Premium from $4.99/mo</strong>
+                    <p>Unlock Steward AI, Shield Partner, full analytics</p>
+                </div>
+            </div>
         </div>
     </section>
 
