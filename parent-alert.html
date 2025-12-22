@@ -9,31 +9,8 @@
     <link rel="icon" type="image/png" href="assets/icon_128.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Design Tokens - Aligned with main styles.css */
-        :root {
-            --color-bg: #0a0a0f;
-            --color-bg-card: rgba(255, 255, 255, 0.03);
-            --color-text: #e2e8f0;
-            --color-text-muted: #94a3b8;
-            --color-text-light: #f1f5f9;
-            --color-primary: #3b82f6;
-            --color-primary-dark: #2563eb;
-            --color-accent-gold: #d4af37;
-            --color-danger: #ef4444;
-            --color-info: #93c5fd;
-            --gradient-primary: linear-gradient(135deg, #3b82f6, #2563eb);
-            --shadow-glow-blue: 0 8px 24px rgba(59, 130, 246, 0.4);
-            --radius-lg: 12px;
-            --radius-xl: 16px;
-            --font-display: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --transition-base: 300ms ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -42,10 +19,10 @@
 
         body {
             min-height: 100vh;
-            background: var(--color-bg);
-            background: radial-gradient(ellipse at center, #1a1a2e 0%, var(--color-bg) 70%);
-            font-family: var(--font-body);
-            color: var(--color-text);
+            background: #0a0a0f;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #e2e8f0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -78,24 +55,23 @@
         }
 
         h1 {
-            font-family: var(--font-display);
             font-size: 1.75rem;
             font-weight: 700;
-            color: var(--color-danger);
+            color: #ef4444;
             margin-bottom: 24px;
             letter-spacing: 0.05em;
         }
 
         .alert-message-main {
             font-size: 1.25rem;
-            color: var(--color-text-light);
+            color: #f1f5f9;
             margin-bottom: 16px;
             line-height: 1.5;
         }
 
         .alert-message-secondary {
             font-size: 1rem;
-            color: var(--color-text-muted);
+            color: #94a3b8;
             margin-bottom: 32px;
             line-height: 1.6;
         }
@@ -108,7 +84,7 @@
             padding: 16px 24px;
             background: rgba(59, 130, 246, 0.1);
             border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: var(--radius-lg);
+            border-radius: 12px;
             margin-bottom: 32px;
         }
 
@@ -118,31 +94,46 @@
 
         .reminder-text {
             font-size: 0.95rem;
-            color: var(--color-info);
+            color: #93c5fd;
         }
 
-        .btn-reinstall {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 14px 28px;
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: var(--radius-lg);
-            color: white;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all var(--transition-base);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        /* Parent Action Notice */
+        .parent-action-notice {
+            margin-top: 24px;
+            padding: 16px 24px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            text-align: left;
         }
 
-        .btn-reinstall:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
+        .parent-action-notice p {
+            margin: 0;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .parent-action-notice p:first-child {
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+
+        /* Notification Status */
+        .notification-status {
+            margin-top: 24px;
+            padding: 12px 20px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #fca5a5;
+        }
+
+        .notification-status.sent {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #ef4444;
         }
 
         /* Footer */
@@ -159,7 +150,7 @@
 
         .footer-text {
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: #64748b;
         }
 
         /* Mobile Responsive */
@@ -182,11 +173,11 @@
         <h1>WHOA! YOU REMOVED YOUR PROTECTION!</h1>
 
         <p class="alert-message-main">
-            <strong>Your parent or guardian will know about this.</strong>
+            <strong>Your parent or guardian has been notified.</strong>
         </p>
 
         <p class="alert-message-secondary">
-            When they check the extension, they'll see it was removed.
+            An alert has been sent to let them know the extension was removed.
             If this was an accident, ask them to reinstall it right away.
         </p>
 
@@ -195,17 +186,80 @@
             <span class="reminder-text">Remember: Telling the truth is always the right thing to do.</span>
         </div>
 
-        <!-- TODO: Replace with actual Chrome Web Store URL when extension is published -->
-        <!-- Example: 'https://chrome.google.com/webstore/detail/verse-guard/YOUR_EXTENSION_ID' -->
-        <a href="https://verseguard.app" class="btn-reinstall" target="_blank">
-            🛡️ Ask a Parent to Reinstall
-        </a>
+        <div class="parent-action-notice">
+            <p>⏳ <strong>What happens next?</strong></p>
+            <p>Your parent will receive an email alert and will decide what to do. Please talk to them about this.</p>
+        </div>
+
+        <div class="notification-status sent" id="notification-status">
+            📧 Your parent has been notified about this removal.
+        </div>
 
         <div class="footer">
             <img src="assets/icon_48.png" alt="Verse Guard" onerror="this.style.display='none'">
             <p class="footer-text">Verse Guard - Protecting what matters</p>
         </div>
     </div>
+
+    <script>
+        // =================================================================
+        // DEAD MAN'S SWITCH - Notify Parent on Uninstall
+        // =================================================================
+        // This script runs when the child uninstalls Verse Guard in Student Mode.
+        // It uses navigator.sendBeacon() for reliability - even if the tab is
+        // closed immediately, the notification will still be sent.
+
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const childId = params.get('child');
+
+            if (childId) {
+                // Use sendBeacon for maximum reliability
+                // Unlike fetch(), sendBeacon() completes even if the page is closed
+                const payload = JSON.stringify({ childId: childId });
+                const endpoint = 'https://us-central1-verse-guard.cloudfunctions.net/notifyUninstall';
+
+                try {
+                    // sendBeacon is the most reliable for "unload" scenarios
+                    const success = navigator.sendBeacon(endpoint, payload);
+
+                    if (success) {
+                        console.log('[Parent Alert] Notification beacon sent for:', childId);
+                    } else {
+                        // Fallback to fetch if sendBeacon fails
+                        console.warn('[Parent Alert] sendBeacon failed, trying fetch...');
+                        fetch(endpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: payload,
+                            keepalive: true // Helps ensure request completes even if page unloads
+                        }).catch(e => console.error('[Parent Alert] Fetch fallback failed:', e));
+                    }
+                } catch (e) {
+                    console.error('[Parent Alert] Failed to send notification:', e);
+                }
+            } else {
+                // No childId - parent wasn't registered for notifications
+                // Update the UI to reflect this
+                const statusEl = document.getElementById('notification-status');
+                if (statusEl) {
+                    statusEl.textContent = 'When they check the extension, they\'ll see it was removed.';
+                    statusEl.classList.remove('sent');
+                }
+
+                // Also update the main message
+                const mainMsg = document.querySelector('.alert-message-main');
+                if (mainMsg) {
+                    mainMsg.innerHTML = '<strong>Your parent or guardian will know about this.</strong>';
+                }
+
+                const secondaryMsg = document.querySelector('.alert-message-secondary');
+                if (secondaryMsg) {
+                    secondaryMsg.textContent = 'When they check the extension, they\'ll see it was removed. If this was an accident, ask them to reinstall it right away.';
+                }
+            }
+        })();
+    </script>
 </body>
 
 </html>
