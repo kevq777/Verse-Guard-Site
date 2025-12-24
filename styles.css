@@ -4,49 +4,87 @@
    ============================================ */
 
 /* ==========================================
-   DESIGN TOKENS
+   DESIGN TOKENS - "Celestial Obsidian" Theme
+   Cathedral meets SaaS • 2026 Edition
    ========================================== */
 :root {
-    /* Light Theme Palette */
-    --color-bg: #FDFCFB;
-    --color-bg-alt: #F5F7FA;
-    --color-bg-card: rgba(255, 255, 255, 0.8);
-    --color-bg-glass: rgba(255, 255, 255, 0.6);
+    /* =============================================
+       "SOFT SKY DARK" - Dusk over Jerusalem
+       Warm reverence meets premium tech • 2026
+       ============================================= */
 
-    /* Text Colors */
-    --color-text: #1A1A2E;
-    --color-text-muted: #6B7280;
-    --color-text-light: #9CA3AF;
+    /* The "Dusk" Palette */
+    --color-bg: #0f141f;
+    /* Deep Twilight */
+    --color-bg-alt: #1a2332;
+    /* Elevated Surface */
+    --color-surface: #1c2533;
+    /* Card Background */
+    --color-bg-card: rgba(255, 255, 255, 0.04);
+    --color-bg-glass: rgba(255, 255, 255, 0.06);
+    --color-border: rgba(255, 255, 255, 0.08);
 
-    /* Brand Colors - Blue Shield, Gold Rim, Silver Cross */
-    --color-primary: #2563EB;
-    --color-primary-dark: #1D4ED8;
-    --color-secondary: #0EA5E9;
-    --color-accent-gold: #D4AF37;
-    --color-accent-silver: #C0C0C0;
-    --color-accent-emerald: #10B981;
+    /* Typography Colors - Soft Contrast */
+    --color-text: #e2e8f0;
+    /* Soft Slate (Primary) */
+    --color-text-muted: #94a3b8;
+    /* Muted Blue (Secondary) */
+    --color-text-light: #cbd5e1;
+    /* Tertiary text */
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #2563EB 0%, #1E40AF 50%, #0EA5E9 100%);
-    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #B8860B 100%);
-    --gradient-warm: linear-gradient(135deg, #D4AF37 0%, #F59E0B 100%);
-    --gradient-cool: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
-    --gradient-hero: linear-gradient(135deg, #2563EB 0%, #1E3A8A 100%);
-    --gradient-mesh: radial-gradient(at 40% 20%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
-        radial-gradient(at 80% 0%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
-        radial-gradient(at 0% 50%, rgba(212, 175, 55, 0.08) 0px, transparent 50%);
+    /* The "Celestial" Accents */
+    --color-primary: #3b82f6;
+    /* Ether Blue (AI/Tech) */
+    --color-primary-dark: #2563eb;
+    --color-secondary: #0ea5e9;
+    --color-gold: #f0c14b;
+    /* Luminous Gold (Wisdom) */
+    --color-gold-dark: #d4af37;
+    --color-gold-muted: rgba(240, 193, 75, 0.15);
+    --color-accent-gold: #f0c14b;
+    /* Alias for compatibility */
+    --color-accent-silver: #a1a1aa;
+    --color-accent-emerald: #10b981;
+    --color-danger: #ef4444;
+    --color-success: #10b981;
 
-    /* Shadows & Glows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-    --glow-blue: 0 0 60px rgba(37, 99, 235, 0.4);
-    --glow-gold: 0 0 40px rgba(212, 175, 55, 0.3);
+    /* Gradients - Twilight Sky */
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+    --gradient-gold: linear-gradient(135deg, #f0c14b 0%, #fcd34d 50%, #d4af37 100%);
+    --gradient-warm: linear-gradient(135deg, #f0c14b 0%, #f59e0b 100%);
+    --gradient-cool: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    --gradient-hero: linear-gradient(180deg, #0f141f 0%, #1a2332 100%);
+    --gradient-cosmic: radial-gradient(ellipse at 30% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 100%, rgba(240, 193, 75, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, #0f141f 0%, #1a2332 100%);
+    --gradient-mesh: radial-gradient(at 40% 20%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 80%, rgba(240, 193, 75, 0.08) 0px, transparent 50%);
 
-    /* Typography */
-    --font-display: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Luminous Glows - Softer for Twilight */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    --glow-blue: 0 0 40px rgba(59, 130, 246, 0.15);
+    --glow-gold: 0 0 25px rgba(240, 193, 75, 0.2);
+    --glow-gold-pulse: 0 0 20px rgba(240, 193, 75, 0.35);
+
+    /* Typography - The "Sacred & Modern" Balance */
+    --font-logo: 'Cinzel', serif;
+    /* Logo ONLY — "hewn in stone" */
+    --font-display: 'Playfair Display', Georgia, serif;
+    /* Headlines — "Old World" authority */
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-scripture: 'Cormorant Garamond', Georgia, serif;
+    /* Scripture/Selah — whisper of wisdom */
+
+    /* Type Scale */
+    --text-hero: clamp(3rem, 8vw, 5.5rem);
+    --text-h1: clamp(2.5rem, 5vw, 4rem);
+    --text-h2: clamp(2rem, 4vw, 3rem);
+    --text-h3: clamp(1.5rem, 3vw, 2rem);
+    --text-body: 1.125rem;
+    --text-small: 0.875rem;
 
     /* Spacing Scale */
     --space-1: 0.25rem;
@@ -96,7 +134,8 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--color-bg);
+    background: var(--gradient-cosmic);
+    background-attachment: fixed;
     color: var(--color-text);
     line-height: 1.6;
     overflow-x: hidden;
@@ -278,6 +317,83 @@ a {
 }
 
 /* ==========================================
+   VANGUARD URGENCY BAR
+   ========================================== */
+.vanguard-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(240, 193, 75, 0.2);
+    font-size: 0.875rem;
+    animation: vanguardPulse 3s ease-in-out infinite;
+}
+
+@keyframes vanguardPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(240, 193, 75, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(240, 193, 75, 0.25);
+    }
+}
+
+.vanguard-bar-icon {
+    font-size: 1.1rem;
+}
+
+.vanguard-bar-text {
+    color: var(--color-text-muted);
+}
+
+.vanguard-bar-text strong {
+    color: var(--color-gold);
+    letter-spacing: 0.05em;
+}
+
+.vanguard-bar-code {
+    color: var(--color-text-muted);
+}
+
+.vanguard-bar-code code {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    margin-left: 0.25em;
+    background: rgba(240, 193, 75, 0.15);
+    border: 1px solid rgba(240, 193, 75, 0.3);
+    border-radius: var(--radius-sm);
+    color: var(--color-gold);
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .vanguard-bar {
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+        font-size: 0.75rem;
+    }
+
+    .vanguard-bar-icon {
+        display: none;
+    }
+}
+
+/* ==========================================
    LAYOUT
    ========================================== */
 .container {
@@ -311,7 +427,7 @@ h6 {
 }
 
 .section-title {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
     margin-bottom: var(--space-4);
@@ -353,7 +469,8 @@ h6 {
    ========================================== */
 .navbar {
     position: fixed;
-    top: 0;
+    top: 44px;
+    /* Offset for Vanguard bar */
     left: 0;
     right: 0;
     z-index: 1000;
@@ -363,11 +480,11 @@ h6 {
 }
 
 .navbar.scrolled {
-    background: rgba(253, 252, 251, 0.9);
+    background: rgba(5, 7, 10, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg);
 }
 
 .nav-container {
@@ -380,7 +497,7 @@ h6 {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-logo);
     font-weight: 700;
     font-size: 1.25rem;
     color: var(--color-text);
@@ -470,12 +587,13 @@ h6 {
 .btn-secondary {
     background: transparent;
     color: var(--color-text);
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .btn-secondary:hover {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(240, 193, 75, 0.4);
+    color: var(--color-gold);
 }
 
 .btn-large {
@@ -526,15 +644,23 @@ h6 {
    ========================================== */
 .hero {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: var(--space-24);
+    padding: calc(var(--space-32) + 44px) 0 var(--space-20);
+    /* Extra space for Vanguard bar + nav */
     position: relative;
     overflow: hidden;
-    background:
-        linear-gradient(180deg, rgba(135, 206, 235, 0.15) 0%, rgba(135, 206, 235, 0.05) 30%, transparent 60%),
-        var(--gradient-mesh),
-        var(--color-bg);
+    /* VIBRANT LIGHT HERO - Blue sky to cream earth */
+    background: linear-gradient(180deg,
+            #87CEEB 0%,
+            /* Sky blue top */
+            #b8dbe8 15%,
+            /* Lighter sky */
+            #e8f4f8 35%,
+            /* Fading to cream */
+            #fdfbf7 55%,
+            /* Warm cream */
+            #f5f0e8 100%
+            /* Soft parchment bottom */
+        );
 }
 
 /* Golden sun glow - subtle for mobile readability */
@@ -608,179 +734,314 @@ h6 {
     inset: 0;
     overflow: hidden;
     pointer-events: none;
+    z-index: 0;
 }
 
-/* Clouds */
-.cloud {
+/* ==========================================
+   LAYERED HILLS - Parallax Depth
+   ========================================== */
+.hill {
     position: absolute;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 100px;
-    filter: blur(2px);
+    bottom: 0;
+    width: 200%;
+    border-radius: 100% 100% 0 0;
 }
 
-.cloud::before,
-.cloud::after {
-    content: '';
-    position: absolute;
-    background: inherit;
-    border-radius: 50%;
+.hill-back {
+    height: 55vh;
+    /* Much taller - reaches into sky */
+    left: -20%;
+    background: linear-gradient(to top, #5a8f6a 0%, #6da67a 30%, #8fbf9a 60%, rgba(143, 191, 154, 0.4) 85%, transparent 100%);
+    animation: hillSway 30s ease-in-out infinite;
 }
 
-.cloud-1 {
-    width: 200px;
-    height: 60px;
-    top: 8%;
-    left: -200px;
-    animation: cloudDrift 45s linear infinite;
+.hill-mid {
+    height: 48vh;
+    left: -10%;
+    background: linear-gradient(to top, #4a7c59 0%, #5a8f6a 25%, #7aaf8a 55%, rgba(122, 175, 138, 0.5) 80%, transparent 100%);
+    animation: hillSway 25s ease-in-out infinite reverse;
+    animation-delay: -5s;
 }
 
-.cloud-1::before {
-    width: 80px;
-    height: 80px;
-    top: -40px;
-    left: 30px;
+.hill-front {
+    height: 40vh;
+    left: 0;
+    background: linear-gradient(to top, #3d6b4f 0%, #4a7c59 20%, #5a8f6a 50%, rgba(90, 143, 106, 0.6) 75%, transparent 100%);
+    animation: hillSway 35s ease-in-out infinite;
+    animation-delay: -10s;
 }
 
-.cloud-1::after {
-    width: 100px;
-    height: 100px;
-    top: -50px;
-    left: 80px;
-}
+@keyframes hillSway {
 
-.cloud-2 {
-    width: 160px;
-    height: 50px;
-    top: 15%;
-    left: -160px;
-    animation: cloudDrift 60s linear infinite;
-    animation-delay: -20s;
-    opacity: 0.8;
-}
-
-.cloud-2::before {
-    width: 60px;
-    height: 60px;
-    top: -30px;
-    left: 25px;
-}
-
-.cloud-2::after {
-    width: 80px;
-    height: 80px;
-    top: -40px;
-    left: 60px;
-}
-
-.cloud-3 {
-    width: 120px;
-    height: 40px;
-    top: 22%;
-    left: -120px;
-    animation: cloudDrift 55s linear infinite;
-    animation-delay: -35s;
-    opacity: 0.6;
-}
-
-.cloud-3::before {
-    width: 50px;
-    height: 50px;
-    top: -25px;
-    left: 20px;
-}
-
-.cloud-3::after {
-    width: 60px;
-    height: 60px;
-    top: -30px;
-    left: 50px;
-}
-
-@keyframes cloudDrift {
-    0% {
+    0%,
+    100% {
         transform: translateX(0);
     }
 
-    100% {
-        transform: translateX(calc(100vw + 300px));
+    50% {
+        transform: translateX(-3%);
     }
 }
 
-/* Doves */
-.dove {
+/* ==========================================
+   FLOWING STREAM - Natural Waterbody
+   ========================================== */
+.stream {
     position: absolute;
-    font-size: 1.5rem;
-    opacity: 0.25;
-    filter: grayscale(100%) brightness(1.5);
+    bottom: 40px;
+    left: -5%;
+    right: -5%;
+    height: 80px;
+    /* Much wider stream */
+    overflow: visible;
 }
 
-.dove-1 {
+/* Main water body with curved edges */
+.stream-flow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 110%;
+    height: 100%;
+    background: linear-gradient(180deg,
+            rgba(59, 130, 246, 0.1) 0%,
+            rgba(59, 130, 246, 0.35) 30%,
+            rgba(37, 99, 235, 0.5) 60%,
+            rgba(30, 64, 175, 0.6) 100%);
+    border-radius: 60% 40% 50% 50% / 30% 25% 20% 15%;
+    animation: waterWave 12s ease-in-out infinite;
+}
+
+/* Ripple layers */
+.stream::before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    width: 90%;
+    height: 60px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(147, 197, 253, 0.3) 40%,
+            rgba(96, 165, 250, 0.4) 100%);
+    border-radius: 45% 55% 60% 40% / 35% 30% 25% 20%;
+    animation: waterWave 10s ease-in-out infinite reverse;
+    animation-delay: -2s;
+}
+
+.stream::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(191, 219, 254, 0.25) 50%,
+            rgba(147, 197, 253, 0.35) 100%);
+    border-radius: 50% 50% 55% 45% / 40% 35% 30% 25%;
+    animation: waterWave 8s ease-in-out infinite;
+    animation-delay: -4s;
+}
+
+/* Sun shimmer on water */
+.stream-shimmer {
+    position: absolute;
+    bottom: 35px;
+    left: 15%;
+    width: 70%;
+    height: 8px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 15%,
+            rgba(255, 255, 255, 0.5) 30%,
+            rgba(253, 224, 71, 0.4) 50%,
+            rgba(255, 255, 255, 0.5) 70%,
+            rgba(255, 255, 255, 0.2) 85%,
+            transparent 100%);
+    border-radius: 50%;
+    animation: shimmerFlow 6s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+@keyframes waterWave {
+
+    0%,
+    100% {
+        transform: translateX(0) scaleX(1);
+        border-radius: 60% 40% 50% 50% / 30% 25% 20% 15%;
+    }
+
+    25% {
+        transform: translateX(1%) scaleX(1.01);
+        border-radius: 55% 45% 52% 48% / 28% 27% 22% 18%;
+    }
+
+    50% {
+        transform: translateX(-1%) scaleX(0.99);
+        border-radius: 45% 55% 48% 52% / 32% 23% 18% 22%;
+    }
+
+    75% {
+        transform: translateX(0.5%) scaleX(1.005);
+        border-radius: 50% 50% 55% 45% / 25% 30% 25% 20%;
+    }
+}
+
+@keyframes shimmerFlow {
+
+    0%,
+    100% {
+        transform: translateX(-10%) scaleX(0.9);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateX(10%) scaleX(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* ==========================================
+   FLYING BIRDS - CSS-Only Vector Art
+   ========================================== */
+.bird {
+    position: absolute;
+    width: 20px;
+    height: 8px;
+}
+
+.bird-wing {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 6px;
+    background: #475569;
+    /* Dark slate for light sky */
+    border-radius: 50% 50% 0 0;
+    transform-origin: center bottom;
+}
+
+.bird-wing-left {
+    left: 0;
+    transform: rotate(-20deg);
+    animation: wingFlapLeft 0.4s ease-in-out infinite;
+}
+
+.bird-wing-right {
+    right: 0;
+    transform: rotate(20deg);
+    animation: wingFlapRight 0.4s ease-in-out infinite;
+}
+
+/* Bird positions and flight paths */
+.bird-1 {
+    top: 15%;
+    left: -30px;
+    animation: birdFly 18s linear infinite;
+    opacity: 0.7;
+}
+
+.bird-2 {
+    top: 22%;
+    left: -30px;
+    animation: birdFly 22s linear infinite;
+    animation-delay: -7s;
+    opacity: 0.5;
+    transform: scale(0.8);
+}
+
+.bird-3 {
     top: 12%;
-    left: -50px;
-    animation: doveFly 25s linear infinite;
+    left: -30px;
+    animation: birdFly 25s linear infinite;
+    animation-delay: -14s;
+    opacity: 0.4;
+    transform: scale(0.6);
 }
 
-.dove-2 {
-    top: 18%;
-    left: -50px;
-    font-size: 1.2rem;
-    animation: doveFly 30s linear infinite;
-    animation-delay: -8s;
-    opacity: 0.18;
+@keyframes wingFlapLeft {
+
+    0%,
+    100% {
+        transform: rotate(-20deg) scaleY(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scaleY(0.8);
+    }
 }
 
-.dove-3 {
-    top: 8%;
-    left: -50px;
-    font-size: 1rem;
-    animation: doveFly 35s linear infinite;
-    animation-delay: -18s;
-    opacity: 0.12;
+@keyframes wingFlapRight {
+
+    0%,
+    100% {
+        transform: rotate(20deg) scaleY(1);
+    }
+
+    50% {
+        transform: rotate(45deg) scaleY(0.8);
+    }
 }
 
-@keyframes doveFly {
+@keyframes birdFly {
     0% {
         transform: translateX(0) translateY(0);
     }
 
-    25% {
-        transform: translateX(25vw) translateY(-15px);
+    20% {
+        transform: translateX(20vw) translateY(-20px);
     }
 
-    50% {
-        transform: translateX(50vw) translateY(5px);
+    40% {
+        transform: translateX(40vw) translateY(10px);
     }
 
-    75% {
-        transform: translateX(75vw) translateY(-10px);
+    60% {
+        transform: translateX(60vw) translateY(-15px);
+    }
+
+    80% {
+        transform: translateX(80vw) translateY(5px);
     }
 
     100% {
-        transform: translateX(calc(100vw + 50px)) translateY(0);
+        transform: translateX(calc(100vw + 40px)) translateY(0);
     }
 }
 
-/* Waves */
-.wave {
+/* ==========================================
+   AMBIENT STARS - Subtle Sparkle
+   ========================================== */
+.stars {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 200%;
-    height: 100px;
-    background: linear-gradient(to top, rgba(37, 99, 235, 0.03) 0%, transparent 100%);
-    border-radius: 100% 100% 0 0;
+    right: 0;
+    height: 60%;
+    background-image:
+        radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 30% 25%, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(2px 2px at 50% 15%, rgba(240, 193, 75, 0.3), transparent),
+        radial-gradient(1px 1px at 70% 30%, rgba(255, 255, 255, 0.25), transparent),
+        radial-gradient(1px 1px at 85% 20%, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 20% 35%, rgba(255, 255, 255, 0.15), transparent),
+        radial-gradient(2px 2px at 60% 8%, rgba(240, 193, 75, 0.25), transparent),
+        radial-gradient(1px 1px at 40% 45%, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90% 40%, rgba(255, 255, 255, 0.15), transparent),
+        radial-gradient(1px 1px at 5% 50%, rgba(255, 255, 255, 0.2), transparent);
+    animation: starsTwinkle 8s ease-in-out infinite alternate;
 }
 
-.wave-1 {
-    animation: waveMove 15s ease-in-out infinite;
-    opacity: 0.6;
-}
+@keyframes starsTwinkle {
+    0% {
+        opacity: 0.6;
+    }
 
-.wave-2 {
-    animation: waveMove 12s ease-in-out infinite reverse;
-    animation-delay: -3s;
-    opacity: 0.4;
-    height: 80px;
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes waveMove {
@@ -805,7 +1066,7 @@ h6 {
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 800px;
 }
 
 .hero-badge {
@@ -832,17 +1093,20 @@ h6 {
 }
 
 .hero-title {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.3;
     margin-bottom: var(--space-6);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.01em;
+    color: #1a1a2e;
+    /* Dark text for light hero */
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--color-text-muted);
+    color: #000000;
+    /* Black for maximum visibility */
     line-height: 1.7;
     margin-bottom: var(--space-8);
 }
@@ -855,11 +1119,103 @@ h6 {
 }
 
 .hero-verse {
-    font-size: 0.95rem;
+    font-family: var(--font-scripture);
+    font-size: 1.1rem;
     font-style: italic;
-    color: var(--color-text-light);
+    color: #374151;
+    /* Darker gray for better visibility */
     padding-left: var(--space-4);
-    border-left: 3px solid var(--color-accent-gold);
+    border-left: 3px solid #d4af37;
+}
+
+/* ==========================================
+   FEATURE SHOWCASE CAROUSEL
+   ========================================== */
+.feature-showcase {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 340px;
+    margin: 0 auto;
+}
+
+.showcase-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    padding: var(--space-10);
+    /* Warm parchment that blends with cream hero */
+    background: linear-gradient(145deg,
+            rgba(253, 251, 247, 0.85) 0%,
+            rgba(245, 240, 232, 0.9) 50%,
+            rgba(232, 244, 248, 0.85) 100%);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(212, 175, 55, 0.25);
+    border-radius: var(--radius-2xl);
+    box-shadow:
+        0 25px 50px rgba(74, 124, 89, 0.15),
+        0 0 40px rgba(212, 175, 55, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-align: center;
+    opacity: 0;
+    transform: translateX(40px) scale(0.92);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.showcase-card.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+}
+
+.showcase-icon {
+    font-size: 4.5rem;
+    margin-bottom: var(--space-5);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+.showcase-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: var(--space-4);
+}
+
+.showcase-desc {
+    font-size: 1.15rem;
+    color: #4b5563;
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Progress dots */
+.showcase-dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-3);
+}
+
+.showcase-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.showcase-dot.active {
+    background: #d4af37;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 /* Welcome Pill */
@@ -880,12 +1236,14 @@ h6 {
 .welcome-pill span {
     font-weight: 600;
     font-size: 1rem;
-    color: var(--color-text);
+    color: #1a1a2e;
+    /* Dark text for light hero */
 }
 
 .welcome-pill em {
     font-size: 0.9rem;
-    color: var(--color-text-muted);
+    color: #000000;
+    /* Black for visibility */
     font-style: italic;
 }
 
@@ -2407,4 +2765,183 @@ h6 {
     .philosophy-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==========================================
+   PRIVACY PAGE STYLES
+   ========================================== */
+.privacy-page {
+    padding: 120px 0 80px;
+    min-height: 100vh;
+    background: #fdfbf7;
+    /* Light cream background */
+}
+
+.privacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.privacy-back {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: var(--space-8);
+    transition: color 0.2s ease;
+}
+
+.privacy-back:hover {
+    color: var(--color-gold);
+}
+
+/* Privacy Headers - Dark text for light background */
+.privacy-content h1 {
+    font-family: var(--font-body);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: var(--space-4);
+}
+
+.privacy-content h2 {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid #d4af37;
+}
+
+.privacy-content h3 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #374151;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+}
+
+.privacy-content p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+}
+
+.privacy-content ul {
+    margin-bottom: var(--space-6);
+    padding-left: var(--space-6);
+}
+
+.privacy-content li {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+}
+
+.privacy-content a {
+    color: var(--color-primary);
+}
+
+.privacy-content a:hover {
+    color: var(--color-gold);
+}
+
+/* Privacy Highlight Box */
+.privacy-highlight {
+    background: linear-gradient(135deg, rgba(240, 193, 75, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border: 1px solid rgba(240, 193, 75, 0.25);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin-bottom: var(--space-10);
+}
+
+.privacy-highlight h2 {
+    margin-top: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Privacy Comparison Table */
+.privacy-comparison table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-6) 0;
+}
+
+.privacy-comparison th,
+.privacy-comparison td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.privacy-comparison th {
+    color: #1a1a2e;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.privacy-comparison td {
+    color: #4b5563;
+}
+
+/* Privacy Promise */
+.privacy-promise {
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 3px solid var(--color-primary);
+    padding: var(--space-4) var(--space-6);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    margin: var(--space-6) 0;
+}
+
+/* Privacy Not Collected */
+.privacy-not-collected {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-6);
+}
+
+.privacy-not-collected ul {
+    margin: 0;
+    padding-left: var(--space-4);
+}
+
+/* Privacy FAQ */
+.privacy-faq {
+    margin-top: var(--space-10);
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.faq-item {
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.faq-item p {
+    color: #4b5563;
+}
+
+.faq-item strong {
+    color: #1a1a2e;
+    font-weight: 600;
+}
+
+.faq-item p:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-footer-note {
+    margin-top: var(--space-10);
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+    color: #6b7280;
 }

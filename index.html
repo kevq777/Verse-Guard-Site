@@ -65,11 +65,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- Vanguard Urgency Bar -->
+    <div class="vanguard-bar">
+        <span class="vanguard-bar-icon">🛡️</span>
+        <span class="vanguard-bar-text">
+            <strong>VANGUARD FOUNDERS:</strong> Only 100 Spots Available
+        </span>
+        <span class="vanguard-bar-code">USE CODE <code>GENESIS</code></span>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -83,6 +92,7 @@
                 <a href="#philosophy">Philosophy</a>
                 <a href="#roadmap">Roadmap</a>
                 <a href="privacy.html">Privacy</a>
+                <a href="support.html">Support</a>
                 <a href="#" class="btn btn-primary" onclick="openWaitlistModal(event)">Join Waitlist</a>
             </div>
             <div class="nav-toggle">
@@ -102,6 +112,7 @@
         <a href="#philosophy">Philosophy</a>
         <a href="#roadmap">Roadmap</a>
         <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
         <a href="#" class="btn btn-primary" onclick="openWaitlistModal(event)">Join Waitlist</a>
     </div>
 
@@ -112,16 +123,35 @@
         <div class="hero-blob hero-blob-2"></div>
         <div class="hero-blob hero-blob-3"></div>
 
-        <!-- Animated scenery -->
+        <!-- Animated Landscape Scenery -->
         <div class="hero-scenery">
-            <!-- Clouds -->
-            <div class="cloud cloud-1"></div>
-            <div class="cloud cloud-2"></div>
-            <div class="cloud cloud-3"></div>
+            <!-- Distant Hills -->
+            <div class="hill hill-back"></div>
+            <div class="hill hill-mid"></div>
+            <div class="hill hill-front"></div>
 
-            <!-- Waves -->
-            <div class="wave wave-1"></div>
-            <div class="wave wave-2"></div>
+            <!-- Flowing Stream -->
+            <div class="stream">
+                <div class="stream-flow"></div>
+                <div class="stream-shimmer"></div>
+            </div>
+
+            <!-- Flying Birds -->
+            <div class="bird bird-1">
+                <div class="bird-wing bird-wing-left"></div>
+                <div class="bird-wing bird-wing-right"></div>
+            </div>
+            <div class="bird bird-2">
+                <div class="bird-wing bird-wing-left"></div>
+                <div class="bird-wing bird-wing-right"></div>
+            </div>
+            <div class="bird bird-3">
+                <div class="bird-wing bird-wing-left"></div>
+                <div class="bird-wing bird-wing-right"></div>
+            </div>
+
+            <!-- Ambient Stars/Particles -->
+            <div class="stars"></div>
         </div>
         <div class="container hero-container">
             <div class="hero-content">
@@ -130,9 +160,7 @@
                     <span>Faith-Powered Digital Wellness</span>
                 </div>
                 <h1 class="hero-title reveal stagger-1">
-                    Guard your heart.<br>
-                    Guard your mind.<br>
-                    <span class="gradient-text">Verse Guard.</span>
+                    Guard your heart. Guard your mind. <span class="gradient-text">Verse Guard.</span>
                 </h1>
                 <p class="hero-subtitle reveal stagger-2">
                     Your companion for intentional Christian living online. Build daily spiritual habits, steward your
@@ -155,14 +183,62 @@
                     — Colossians 3:23
                 </p>
             </div>
-            <!-- Hero Visual - Pure CSS -->
+            <!-- Hero Visual - Feature Showcase Cards -->
             <div class="hero-visual reveal">
-                <div class="hero-orb hero-orb-1"></div>
-                <div class="hero-orb hero-orb-2"></div>
-                <div class="hero-orb hero-orb-3"></div>
-                <div class="hero-center-glow"></div>
-                <!-- Pure CSS Cross -->
-                <div class="hero-css-cross"></div>
+                <div class="feature-showcase">
+                    <!-- Card 1: Focus Timer -->
+                    <div class="showcase-card active" data-index="0">
+                        <div class="showcase-icon">⏱️</div>
+                        <h3 class="showcase-title">Stewardship Focus</h3>
+                        <p class="showcase-desc">Pomodoro-style focus timer with Scripture-powered breaks</p>
+                    </div>
+                    <!-- Card 2: Steward AI -->
+                    <div class="showcase-card" data-index="1">
+                        <div class="showcase-icon">⚜️</div>
+                        <h3 class="showcase-title">Steward AI</h3>
+                        <p class="showcase-desc">AI-powered task planning with biblical wisdom</p>
+                    </div>
+                    <!-- Card 3: Shield Partner -->
+                    <div class="showcase-card" data-index="2">
+                        <div class="showcase-icon">🤝</div>
+                        <h3 class="showcase-title">Shield Partner</h3>
+                        <p class="showcase-desc">Shared accountability with weekly progress reports</p>
+                    </div>
+                    <!-- Card 4: Productivity Reports -->
+                    <div class="showcase-card" data-index="3">
+                        <div class="showcase-icon">📊</div>
+                        <h3 class="showcase-title">Stewardship Reports</h3>
+                        <p class="showcase-desc">Track your productivity rate and focus trends</p>
+                    </div>
+                    <!-- Card 5: Content Boundaries -->
+                    <div class="showcase-card" data-index="4">
+                        <div class="showcase-icon">🛡️</div>
+                        <h3 class="showcase-title">Theme-Based Boundaries</h3>
+                        <p class="showcase-desc">Block distractions by category with Scripture</p>
+                    </div>
+                    <!-- Card 6: AI Goals -->
+                    <div class="showcase-card" data-index="5">
+                        <div class="showcase-icon">🎯</div>
+                        <h3 class="showcase-title">AI Goal Planning</h3>
+                        <p class="showcase-desc">"Order My Steps" — Get actionable tasks from goals</p>
+                    </div>
+                    <!-- Card 7: Bible Trivia -->
+                    <div class="showcase-card" data-index="6">
+                        <div class="showcase-icon">📖</div>
+                        <h3 class="showcase-title">Bible Trivia</h3>
+                        <p class="showcase-desc">150+ questions for mindful breaks</p>
+                    </div>
+                    <!-- Progress dots -->
+                    <div class="showcase-dots">
+                        <span class="showcase-dot active" data-index="0"></span>
+                        <span class="showcase-dot" data-index="1"></span>
+                        <span class="showcase-dot" data-index="2"></span>
+                        <span class="showcase-dot" data-index="3"></span>
+                        <span class="showcase-dot" data-index="4"></span>
+                        <span class="showcase-dot" data-index="5"></span>
+                        <span class="showcase-dot" data-index="6"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -583,6 +659,41 @@
                 closeWaitlistModal(e);
             }
         });
+
+        // Feature Showcase Carousel
+        (function () {
+            const cards = document.querySelectorAll('.showcase-card');
+            const dots = document.querySelectorAll('.showcase-dot');
+            let currentIndex = 0;
+            const totalCards = cards.length;
+            const interval = 4000; // 4 seconds per card
+
+            function showCard(index) {
+                cards.forEach((card, i) => {
+                    card.classList.toggle('active', i === index);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+                currentIndex = index;
+            }
+
+            function nextCard() {
+                showCard((currentIndex + 1) % totalCards);
+            }
+
+            // Auto-rotate
+            let autoRotate = setInterval(nextCard, interval);
+
+            // Click on dots to navigate
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(autoRotate);
+                    showCard(index);
+                    autoRotate = setInterval(nextCard, interval);
+                });
+            });
+        })();
     </script>
 </body>
 
