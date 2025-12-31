@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Verse Guard</title>
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script>
+        // Frame-busting protection
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+    </script>
     <meta name="description"
         content="Verse Guard Terms of Service - The Steward's Covenant outlining the terms for using our faith-based digital wellness companion.">
     <link rel="icon" type="image/png" href="assets/icon_128.png">
@@ -87,7 +97,8 @@
                 <ul>
                     <li><strong>Verse Guard™</strong>, the Golden Sigil, and the unique functionality of the
                         <strong>Witness Stone</strong> and <strong>Space of Grace</strong> are the intellectual property
-                        of Verse Guard.</li>
+                        of Verse Guard.
+                    </li>
                     <li>The "look and feel" of the Sanctuary is protected by copyright.</li>
                     <li><strong>Scripture:</strong> Biblical texts used within the app are the property of their
                         respective copyright holders (e.g., Biblica, Crossway). We provide these under "fair use" for

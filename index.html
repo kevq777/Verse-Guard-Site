@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verse Guard - Faith-Based Digital Wellness | Chrome Extension</title>
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self' https://formspree.io; base-uri 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script>
+        // Frame-busting protection
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+    </script>
+
     <meta name="description"
         content="Your companion for intentional Christian living online. Block distractions with Scripture, build spiritual habits, and grow as a digital disciple with AI-powered productivity tools.">
     <meta name="keywords"
@@ -501,6 +512,7 @@
                     </button>
                 </div>
                 <input type="hidden" name="_subject" value="New Verse Guard Waitlist Signup!">
+                <input type="text" name="_gotcha" style="display:none">
             </form>
 
             <div class="download-features reveal stagger-3">
@@ -559,6 +571,7 @@
                 <input type="email" name="email" placeholder="your@email.com" required>
                 <button type="submit" class="btn btn-primary">Join Waitlist</button>
                 <input type="hidden" name="_subject" value="New Verse Guard Waitlist Signup!">
+                <input type="text" name="_gotcha" style="display:none">
             </form>
             <p class="modal-note">No spam, ever. Just launch updates.</p>
         </div>
