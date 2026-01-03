@@ -382,6 +382,8 @@ a {
 
 @media (max-width: 768px) {
     .vanguard-bar {
+        position: absolute;
+        /* Scroll with page on mobile */
         flex-wrap: wrap;
         gap: var(--space-2);
         padding: var(--space-2) var(--space-3);
@@ -477,6 +479,13 @@ h6 {
     padding: var(--space-4) 0;
     background: transparent;
     transition: all var(--transition-base);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        top: 0;
+        /* Reset top since Vanguard bar is absolute/scrolled */
+    }
 }
 
 .navbar.scrolled {
@@ -1294,11 +1303,56 @@ h6 {
 /* Progress dots */
 .showcase-dots {
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
+    /* Closer to bottom for mobile */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: var(--space-3);
+    z-index: 10;
+}
+
+/* Mobile Carousel Optimizations */
+@media (max-width: 768px) {
+    .feature-showcase {
+        height: 480px;
+        /* Taller container for vertical flow */
+        max-width: 100%;
+        margin-top: var(--space-4);
+    }
+
+    .showcase-card {
+        height: auto;
+        min-height: 380px;
+        padding: var(--space-6) var(--space-4);
+        /* Reduced padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .showcase-icon {
+        font-size: 3.5rem;
+        /* Smaller icon */
+        margin-bottom: var(--space-3);
+    }
+
+    .showcase-title {
+        font-size: 1.4rem;
+        /* Smaller title */
+        margin-bottom: var(--space-2);
+    }
+
+    .showcase-desc {
+        font-size: 1rem;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+    .showcase-dots {
+        bottom: 20px;
+    }
 }
 
 .showcase-dot {
