@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Stronghold | Verse Guard</title>
-    <meta name="description"
-        content="You chose the higher path. Welcome to The Stronghold - a sanctuary for believers standing watch together.">
-
-    <!-- Favicon -->
+    <meta name="description" content="A Living Tabernacle for the Brotherhood of Verse Guard. Start your vigil.">
     <link rel="icon" type="image/png" href="assets/favicon.png">
 
     <!-- Fonts -->
@@ -18,544 +15,83 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Confetti Library -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/stronghold.css">
+    <!-- Confetti (Still useful for victory state) -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-
-    <style>
-        :root {
-            --bg-deep: #0a0f1a;
-            --bg-stone: #141b2d;
-            --text-primary: #f0f4ff;
-            --text-secondary: #94a3b8;
-            --gold-warm: #f59e0b;
-            --gold-light: #fbbf24;
-            --purple-glow: rgba(139, 92, 246, 0.15);
-            --amber-glow: rgba(251, 146, 60, 0.12);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-deep);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* ============================================
-           THE HEARTH GLOW - Warm amber from bottom
-           ============================================ */
-        .hearth-glow {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50vh;
-            background: radial-gradient(ellipse 120% 60% at 50% 100%,
-                    rgba(251, 146, 60, 0.15) 0%,
-                    rgba(245, 158, 11, 0.08) 30%,
-                    rgba(251, 146, 60, 0.03) 50%,
-                    transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ============================================
-           STARFIELD WINDOW - Stone arch with stars
-           ============================================ */
-        .starfield-window {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100vh;
-            background:
-                radial-gradient(ellipse 60% 40% at 50% 15%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                radial-gradient(circle at 40% 5%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                radial-gradient(circle at 60% 25%, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-                radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Twinkling stars animation */
-        .star {
-            position: fixed;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: twinkle 3s ease-in-out infinite;
-        }
-
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
-
-        /* ============================================
-           MAIN CONTENT
-           ============================================ */
-        .container {
-            position: relative;
-            z-index: 10;
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 60px 24px 80px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        /* ============================================
-           SHIELD ICON
-           ============================================ */
-        .shield-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 24px;
-            animation: shieldGlow 4s ease-in-out infinite;
-        }
-
-        .shield-icon img {
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.4));
-        }
-
-        @keyframes shieldGlow {
-
-            0%,
-            100% {
-                filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.4));
-                transform: scale(1);
-            }
-
-            50% {
-                filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.6));
-                transform: scale(1.05);
-            }
-        }
-
-        /* ============================================
-           VICTORY BANNER
-           ============================================ */
-        .victory-banner {
-            margin-bottom: 48px;
-        }
-
-        .victory-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold-light) 50%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-            animation: victoryFade 1s ease-out;
-        }
-
-        .victory-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            animation: victoryFade 1.2s ease-out;
-        }
-
-        @keyframes victoryFade {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============================================
-           PRESENCE COUNTER - "Stewards standing watch"
-           ============================================ */
-        .presence-counter {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.25);
-            border-radius: 100px;
-            margin-bottom: 48px;
-            animation: presencePulse 3s ease-in-out infinite;
-        }
-
-        .presence-dot {
-            width: 10px;
-            height: 10px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: dotPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes dotPulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: scale(1.3);
-            }
-        }
-
-        @keyframes presencePulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.2);
-            }
-
-            50% {
-                box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.15);
-            }
-        }
-
-        .presence-text {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .presence-count {
-            color: var(--gold-warm);
-            font-weight: 600;
-        }
-
-        /* ============================================
-           VICTORY VERSE CARD
-           ============================================ */
-        .verse-card {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(20, 27, 45, 0.9) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 20px;
-            padding: 32px 28px;
-            margin-bottom: 48px;
-            max-width: 540px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .verse-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold-warm), #8b5cf6, var(--gold-light));
-        }
-
-        .verse-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-style: italic;
-            line-height: 1.8;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-
-        .verse-reference {
-            font-size: 0.95rem;
-            color: var(--gold-warm);
-            font-weight: 600;
-        }
-
-        /* ============================================
-           CTA BUTTONS
-           ============================================ */
-        .cta-section {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            width: 100%;
-            max-width: 320px;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .cta-primary {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-            color: white;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
-        }
-
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-secondary);
-        }
-
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        .footer {
-            margin-top: auto;
-            padding-top: 48px;
-            text-align: center;
-        }
-
-        .footer-tagline {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        .footer-tagline strong {
-            color: var(--gold-warm);
-        }
-
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
-        @media (max-width: 600px) {
-            .victory-title {
-                font-size: 2rem;
-            }
-
-            .verse-card {
-                padding: 24px 20px;
-            }
-
-            .verse-text {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Background Effects -->
-    <div class="hearth-glow"></div>
-    <div class="starfield-window"></div>
 
-    <!-- Twinkling Stars -->
-    <div class="star" style="top: 8%; left: 15%; animation-delay: 0s;"></div>
-    <div class="star" style="top: 12%; left: 75%; animation-delay: 1s;"></div>
-    <div class="star" style="top: 5%; left: 45%; animation-delay: 0.5s;"></div>
-    <div class="star" style="top: 18%; left: 25%; animation-delay: 1.5s;"></div>
-    <div class="star" style="top: 10%; left: 88%; animation-delay: 2s;"></div>
-    <div class="star" style="top: 22%; left: 60%; animation-delay: 0.8s;"></div>
+    <!-- LAYER 1: VIGIL (Drawing) -->
+    <canvas id="vigil-canvas"></canvas>
+    <div class="fog-layer"></div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="shield-icon">
-            <img src="assets/icon_128.png" alt="Verse Guard Shield" onerror="this.style.display='none'">
+    <!-- LAYER 2: UI -->
+    <div class="ui-layer">
+
+        <!-- HEADER -->
+        <div class="header-section">
+            <div class="shield-container">
+                <img src="assets/icon_128.png" alt="Verse Guard Shield" class="shield-icon">
+            </div>
+            <h1 class="scripture-quote">
+                "Resist him, firm in your faith, knowing that the same kinds of suffering are being experienced by your
+                brotherhood throughout the world."
+            </h1>
+            <p class="scripture-ref">1 Peter 5:9</p>
         </div>
 
-        <div class="victory-banner">
-            <h1 class="victory-title">You Chose the Higher Path</h1>
-            <p class="victory-subtitle">Welcome to The Stronghold</p>
+        <!-- INTERACTION ZONE (Bottom) -->
+        <div class="interaction-zone" id="interaction-zone">
+            <!-- The Lantern -->
+            <div class="user-lantern-container">
+                <div class="lantern-icon" id="user-lantern-btn">🕯️</div>
+            </div>
+
+            <p class="action-label" id="action-label">Why do you stand watch?</p>
+
+            <!-- Selection Menu -->
+            <div class="stand-menu" id="stand-menu">
+                <div class="menu-title">What are you resisting?</div>
+                <div class="option-grid">
+                    <div class="stand-option" data-struggle="Lust">Lust</div>
+                    <div class="stand-option" data-struggle="Sloth">Sloth</div>
+                    <div class="stand-option" data-struggle="Anger">Anger</div>
+                    <div class="stand-option" data-struggle="Pride">Pride</div>
+                    <div class="stand-option" data-struggle="Despair">Despair</div>
+                    <div class="stand-option" data-struggle="Distraction">Distraction</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Live Presence Counter (will be powered by Firebase in Phase 2) -->
-        <div class="presence-counter">
-            <div class="presence-dot"></div>
-            <span class="presence-text">
-                🛡️ <span class="presence-count" id="steward-count">—</span> Stewards standing watch
-            </span>
-        </div>
-
-        <!-- Victory Verse -->
-        <div class="verse-card">
-            <p class="verse-text" id="victory-verse">
-                "No temptation has overtaken you except what is common to mankind. And God is faithful; he will not let
-                you be tempted beyond what you can bear."
+        <!-- JAMES 1:2-4 FOOTER (Initially hidden/dim) -->
+        <div class="testament-footer" id="testament">
+            <p class="testament-text">
+                "Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know
+                that the testing of your faith produces <span class="pulse-target">perseverance</span>. Let <span
+                    class="pulse-target-sub">perseverance</span> finish its work so that you may be mature and complete,
+                not lacking anything."
             </p>
-            <p class="verse-reference" id="verse-reference">— 1 Corinthians 10:13</p>
+            <p class="testament-ref">James 1:2-4</p>
         </div>
 
-        <!-- CTAs -->
-        <div class="cta-section">
-            <a href="https://chromewebstore.google.com/detail/verse-guard/" class="cta-button cta-primary"
-                target="_blank">
-                🤝 Find a Shield Partner
-            </a>
-            <a href="index.html" class="cta-button cta-secondary">
-                ← Return to Verse Guard
-            </a>
-        </div>
-
-        <div class="footer">
-            <p class="footer-tagline">
-                Guard your heart. Guard your mind. <strong>Verse Guard.</strong>
-            </p>
+        <div class="victory-banner-bottom">
+            <a href="index.html" class="cta-tiny">Retreat to Safety</a>
         </div>
     </div>
 
-    <script>
-        // ============================================
-        // VICTORY VERSES - Rotating pool
-        // ============================================
-        const victoryVerses = [
-            {
-                text: '"No temptation has overtaken you except what is common to mankind. And God is faithful; he will not let you be tempted beyond what you can bear."',
-                ref: '— 1 Corinthians 10:13'
-            },
-            {
-                text: '"Submit yourselves therefore to God. Resist the devil, and he will flee from you."',
-                ref: '— James 4:7'
-            },
-            {
-                text: '"The Lord is my strength and my shield; my heart trusts in him, and he helps me."',
-                ref: '— Psalm 28:7'
-            },
-            {
-                text: '"I have told you these things, so that in me you may have peace. In this world you will have trouble. But take heart! I have overcome the world."',
-                ref: '— John 16:33'
-            },
-            {
-                text: '"Be sober-minded; be watchful. Your adversary the devil prowls around like a roaring lion, seeking someone to devour. Resist him, firm in your faith."',
-                ref: '— 1 Peter 5:8-9'
-            },
-            {
-                text: '"For we do not have a high priest who is unable to empathize with our weaknesses, but we have one who has been tempted in every way, just as we are—yet he did not sin."',
-                ref: '— Hebrews 4:15'
-            },
-            {
-                text: '"The Lord is faithful, and he will strengthen you and protect you from the evil one."',
-                ref: '— 2 Thessalonians 3:3'
-            },
-            {
-                text: '"But thanks be to God! He gives us the victory through our Lord Jesus Christ."',
-                ref: '— 1 Corinthians 15:57'
-            },
-            {
-                text: '"I can do all things through him who strengthens me."',
-                ref: '— Philippians 4:13'
-            },
-            {
-                text: '"You, dear children, are from God and have overcome them, because the one who is in you is greater than the one who is in the world."',
-                ref: '— 1 John 4:4'
-            }
-        ];
+    <!-- TOOLTIP (Follows Mouse) -->
+    <div id="vigil-tooltip">
+        <span class="tooltip-text" id="tooltip-content">Loading...</span>
+    </div>
 
-        // Display random verse
-        function displayRandomVerse() {
-            const verse = victoryVerses[Math.floor(Math.random() * victoryVerses.length)];
-            document.getElementById('victory-verse').textContent = verse.text;
-            document.getElementById('verse-reference').textContent = verse.ref;
-        }
+    <!-- Footer link -->
+    <div class="victory-banner-bottom">
+        <a href="index.html" class="cta-tiny">Retreat to Safety</a>
+    </div>
 
-        // ============================================
-        // VICTORY CONFETTI - Triggered by ?status=victory
-        // ============================================
-        function triggerVictoryConfetti() {
-            const duration = 3000;
-            const end = Date.now() + duration;
-
-            // Gold and white colors
-            const colors = ['#f59e0b', '#fbbf24', '#ffffff', '#8b5cf6'];
-
-            (function frame() {
-                confetti({
-                    particleCount: 3,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0, y: 0.7 },
-                    colors: colors
-                });
-                confetti({
-                    particleCount: 3,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1, y: 0.7 },
-                    colors: colors
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
-
-            // Center burst after 500ms
-            setTimeout(() => {
-                confetti({
-                    particleCount: 100,
-                    spread: 100,
-                    origin: { y: 0.5 },
-                    colors: colors
-                });
-            }, 500);
-        }
-
-        // ============================================
-        // INITIALIZE
-        // ============================================
-        document.addEventListener('DOMContentLoaded', () => {
-            // Display random verse
-            displayRandomVerse();
-
-            // Check for victory parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('status') === 'victory') {
-                // Slight delay for page to render
-                setTimeout(triggerVictoryConfetti, 300);
-            }
-
-            // Placeholder steward count (will be replaced by Firebase Realtime DB)
-            // For now, show a realistic-looking random number
-            const count = Math.floor(Math.random() * 20) + 5;
-            document.getElementById('steward-count').textContent = count;
-        });
-    </script>
+    <script src="assets/stronghold.js"></script>
 </body>
 
 </html>
