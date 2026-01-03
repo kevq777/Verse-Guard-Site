@@ -21,7 +21,8 @@ const CONFIG = {
         { city: 'New York', struggle: 'Greed' },
         { city: 'Cairo', struggle: 'Lust' },
         { city: 'Sydney', struggle: 'Sloth' }
-    ]
+    ],
+    MAX_PARTICLES: 100 // HARD LIMIT: Prevent DoS
 };
 
 class Vigil {
@@ -36,6 +37,7 @@ class Vigil {
         this.mouse = { x: 0, y: 0 };
         this.hoveredLantern = null;
         this.userLantern = null; // Will be the object when user lights it
+        this.hasIgnited = false; // SECURITY: Rate Limit (One stand per session)
 
         this.init();
     }
@@ -71,6 +73,11 @@ class Vigil {
     }
 
     createLantern(isUser = false, triggerX, triggerY) {
+        // SECURITY: Particle Cap
+        if (this.lanterns.length >= CONFIG.MAX_PARTICLES) {
+            this.lanterns.shift(); // Remove oldest to make room
+        }
+
         // Assign random identity
         const identity = CONFIG.mockStewards[Math.floor(Math.random() * CONFIG.mockStewards.length)];
 
@@ -97,6 +104,7 @@ class Vigil {
 
         // Click Lantern -> Show Menu
         lanternBtn.addEventListener('click', () => {
+            if (this.hasIgnited) return; // Prevent spam
             if (zone.classList.contains('ignited')) return;
             menu.classList.add('active');
             label.innerText = 'Choose your stand...';
@@ -105,6 +113,8 @@ class Vigil {
         // Click Option -> Ignite
         document.querySelectorAll('.stand-option').forEach(opt => {
             opt.addEventListener('click', (e) => {
+                if (this.hasIgnited) return; // double-check
+
                 const struggle = e.target.dataset.struggle;
                 this.igniteUserLantern(struggle);
                 menu.classList.remove('active');
@@ -113,6 +123,9 @@ class Vigil {
     }
 
     igniteUserLantern(struggle) {
+        if (this.hasIgnited) return;
+        this.hasIgnited = true; // Lock it down
+
         const zone = document.getElementById('interaction-zone');
         const label = document.getElementById('action-label');
         const lanternIcon = document.getElementById('user-lantern-btn');
