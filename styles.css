@@ -2378,7 +2378,8 @@ h6 {
     }
 
     .hero-visual {
-        order: -1;
+        /* order: -1; Removed to keep text first */
+        margin-top: var(--space-8);
         margin-bottom: var(--space-8);
     }
 
