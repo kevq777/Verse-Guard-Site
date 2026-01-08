@@ -236,7 +236,7 @@ Unlike other "free" blockers that sell your browsing data, **Verse Guard is mini
 
 This extension is currently in **beta testing**. Feedback, bug reports, and feature requests are welcome!
 
-**Contact:** stewardguard7@gmail.com
+**Contact:** team.verseguard.app@gmail.com
 
 ---
 

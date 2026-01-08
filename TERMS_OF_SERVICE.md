@@ -86,7 +86,7 @@ We may update these terms at any time. Material changes will be communicated thr
 ## Contact
 
 For questions about these terms:
-**Email:** [stewardguard7@gmail.com](mailto:stewardguard7@gmail.com)
+**Email:** [team.verseguard.app@gmail.com](mailto:team.verseguard.app@gmail.com)
 
 ---
 

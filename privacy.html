@@ -22,8 +22,368 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <style>
+        /* Privacy Page Premium Styles */
+        .privacy-hero {
+            min-height: 100vh;
+            padding: calc(var(--space-32) + 44px) 0 var(--space-20);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg,
+                    #87CEEB 0%,
+                    #b8dbe8 15%,
+                    #e8f4f8 35%,
+                    #fdfbf7 55%,
+                    #f5f0e8 100%);
+        }
+
+        .privacy-hero::before {
+            content: '';
+            position: absolute;
+            top: 5%;
+            right: 8%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, rgba(255, 180, 0, 0.06) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            pointer-events: none;
+            animation: sunPulse 8s ease-in-out infinite;
+        }
+
+        /* Animated blobs */
+        .privacy-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: blob 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .privacy-blob-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(37, 99, 235, 0.12);
+            top: -150px;
+            right: -100px;
+        }
+
+        .privacy-blob-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(14, 165, 233, 0.08);
+            bottom: 10%;
+            left: -100px;
+            animation-delay: -7s;
+        }
+
+        /* Glass Card */
+        .privacy-glass {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-12) var(--space-10);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .privacy-glass {
+                margin: 0 var(--space-4);
+                padding: var(--space-8) var(--space-6);
+                border-radius: var(--radius-xl);
+            }
+        }
+
+        /* Typography */
+        .privacy-glass h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #1a2332;
+            margin-bottom: var(--space-2);
+            text-align: center;
+        }
+
+        .privacy-glass h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1a2332;
+            margin-top: var(--space-10);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .privacy-glass h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a2332;
+            margin-top: var(--space-6);
+            margin-bottom: var(--space-3);
+        }
+
+        .privacy-glass p,
+        .privacy-glass li {
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        .privacy-glass ul {
+            padding-left: var(--space-6);
+            margin-bottom: var(--space-4);
+        }
+
+        .privacy-glass li {
+            margin-bottom: var(--space-2);
+        }
+
+        .privacy-glass a {
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .privacy-glass a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        /* Updated Badge */
+        .privacy-updated-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            color: #3b82f6;
+            margin-bottom: var(--space-8);
+        }
+
+        .privacy-updated-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Comparison Table */
+        .privacy-comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-6) 0;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .privacy-comparison-table th,
+        .privacy-comparison-table td {
+            padding: var(--space-4);
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            color: #1a1a1a;
+        }
+
+        .privacy-comparison-table th {
+            background: rgba(59, 130, 246, 0.08);
+            font-weight: 600;
+            color: #1a2332;
+        }
+
+        .privacy-comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Icon Styles */
+        .icon-inline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .icon-inline svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .icon-check {
+            color: #10b981;
+        }
+
+        .icon-x {
+            color: #ef4444;
+        }
+
+        .icon-shield {
+            color: #3b82f6;
+        }
+
+        .icon-gold {
+            color: #d4af37;
+        }
+
+        /* Highlight Box */
+        .privacy-highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(240, 193, 75, 0.06) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+
+        .privacy-highlight-box.gold {
+            background: linear-gradient(135deg, rgba(240, 193, 75, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-color: rgba(212, 175, 55, 0.25);
+        }
+
+        .privacy-promise {
+            font-style: italic;
+            color: #475569;
+            margin-top: var(--space-4);
+        }
+
+        /* Not Collected Box */
+        .privacy-not-collected {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4) var(--space-6);
+            margin: var(--space-4) 0;
+        }
+
+        .privacy-not-collected ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .privacy-not-collected li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-2);
+        }
+
+        /* FAQ Section */
+        .privacy-faq {
+            margin-top: var(--space-10);
+            padding-top: var(--space-6);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-item {
+            margin-bottom: var(--space-6);
+            padding: var(--space-4);
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item p:first-child {
+            margin-bottom: var(--space-2);
+        }
+
+        /* Footer Note */
+        .privacy-footer-note {
+            text-align: center;
+            font-style: italic;
+            color: #64748b;
+            margin-top: var(--space-10);
+            padding-top: var(--space-6);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Back Link */
+        .privacy-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: #3b82f6;
+            font-weight: 500;
+            margin-bottom: var(--space-6);
+            text-decoration: none;
+        }
+
+        .privacy-back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Scenery Elements */
+        .privacy-scenery {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .privacy-hill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .privacy-hill-back {
+            height: 180px;
+            background: linear-gradient(180deg, rgba(139, 169, 131, 0.3) 0%, rgba(107, 142, 99, 0.4) 100%);
+            transform: translateY(60%);
+        }
+
+        .privacy-hill-front {
+            height: 120px;
+            background: linear-gradient(180deg, rgba(139, 169, 131, 0.5) 0%, rgba(107, 142, 99, 0.6) 100%);
+            transform: translateY(70%);
+        }
+
+        /* Cross in sky */
+        .privacy-cross {
+            position: absolute;
+            top: 8%;
+            right: 12%;
+            width: 40px;
+            height: 60px;
+            z-index: 1;
+        }
+
+        .privacy-cross-v {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 223, 150, 0.8) 100%);
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .privacy-cross-h {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 6px;
+            background: linear-gradient(90deg, rgba(255, 200, 100, 0.6) 0%, rgba(255, 223, 150, 0.8) 50%, rgba(255, 200, 100, 0.6) 100%);
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+    </style>
 </head>
 
 <body>
@@ -49,52 +409,128 @@
         </div>
     </nav>
 
-    <!-- Privacy Content -->
-    <div class="privacy-page">
+    <!-- Privacy Content with Hero Background -->
+    <section class="privacy-hero">
+        <!-- Scenery -->
+        <div class="privacy-scenery">
+            <div class="privacy-hill privacy-hill-back"></div>
+            <div class="privacy-hill privacy-hill-front"></div>
+            <div class="privacy-cross">
+                <div class="privacy-cross-v"></div>
+                <div class="privacy-cross-h"></div>
+            </div>
+        </div>
+
+        <!-- Blobs -->
+        <div class="privacy-blob privacy-blob-1"></div>
+        <div class="privacy-blob privacy-blob-2"></div>
+
         <div class="container">
-            <div class="privacy-content">
-                <a href="index.html" class="privacy-back">
-                    ← Back to Home
+            <div class="privacy-glass">
+                <a href="index.html" class="privacy-back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back to Home
                 </a>
 
                 <h1>Privacy Policy</h1>
-                <p style="color: var(--color-text-light); margin-bottom: var(--space-8);"><em>Last Updated: December
-                        2025</em></p>
+                <div style="text-align: center;">
+                    <span class="privacy-updated-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        Last Updated: January 2026
+                    </span>
+                </div>
 
                 <!-- Why We're Different Section -->
-                <div class="privacy-highlight">
-                    <h2>🛡️ Why We're Different</h2>
+                <div class="privacy-highlight-box gold">
+                    <h2>
+                        <span class="icon-inline icon-shield">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </span>
+                        Why We're Different
+                    </h2>
                     <p>Most "free" browser extensions make money by secretly selling your browsing data to advertisers,
                         data brokers, and hedge funds. <strong>Verse Guard is different.</strong></p>
 
-                    <div class="privacy-comparison">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Other "Free" Blockers</th>
-                                    <th>Verse Guard</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>❌ Sell your browsing history</td>
-                                    <td>✅ Never sell any data</td>
-                                </tr>
-                                <tr>
-                                    <td>❌ Track every site you visit</td>
-                                    <td>✅ Local-only processing</td>
-                                </tr>
-                                <tr>
-                                    <td>❌ You are the product</td>
-                                    <td>✅ You are the customer</td>
-                                </tr>
-                                <tr>
-                                    <td>❌ Funded by data exploitation</td>
-                                    <td>✅ Funded by Premium subscriptions</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="privacy-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Other "Free" Blockers</th>
+                                <th>Verse Guard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="15" y1="9" x2="9" y2="15" />
+                                            <line x1="9" y1="9" x2="15" y2="15" />
+                                        </svg></span> Sell your browsing history</td>
+                                <td><span class="icon-inline icon-check"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                            <polyline points="22 4 12 14.01 9 11.01" />
+                                        </svg></span> Never sell any data</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="15" y1="9" x2="9" y2="15" />
+                                            <line x1="9" y1="9" x2="15" y2="15" />
+                                        </svg></span> Track every site you visit</td>
+                                <td><span class="icon-inline icon-check"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                            <polyline points="22 4 12 14.01 9 11.01" />
+                                        </svg></span> Browsing data stays on your device only</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="15" y1="9" x2="9" y2="15" />
+                                            <line x1="9" y1="9" x2="15" y2="15" />
+                                        </svg></span> You are the product</td>
+                                <td><span class="icon-inline icon-check"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                            <polyline points="22 4 12 14.01 9 11.01" />
+                                        </svg></span> You are the customer</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="15" y1="9" x2="9" y2="15" />
+                                            <line x1="9" y1="9" x2="15" y2="15" />
+                                        </svg></span> Funded by data exploitation</td>
+                                <td><span class="icon-inline icon-check"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                            <polyline points="22 4 12 14.01 9 11.01" />
+                                        </svg></span> Funded by Premium subscriptions</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <p class="privacy-promise"><strong>Our Promise:</strong> We are a ministry-first project. Your
                         struggles, reflections, and browsing patterns are sacred—not marketing data.</p>
@@ -109,15 +545,19 @@
 
                 <h3>Data Stored Locally (On Your Device)</h3>
                 <p>The following data is stored only on your device using Chrome's storage APIs and never leaves your
-                    browser:</p>
+                    browser unless you explicitly enable cloud features:</p>
                 <ul>
                     <li><strong>User Settings:</strong> Theme preferences, blocked site lists, timer configurations</li>
                     <li><strong>Diary Entries:</strong> Personal reflections you write in the app</li>
                     <li><strong>Focus Session History:</strong> Session durations, tasks, and notes</li>
                     <li><strong>Badge Progress:</strong> Achievements and XP earned</li>
                     <li><strong>Daily Challenges:</strong> Completion status for verses and prayers</li>
-                    <li><strong>Password Hash:</strong> Encrypted hash of your settings password (password itself is not
-                        stored)</li>
+                    <li><strong>PIN Hash:</strong> Encrypted hash of your settings PIN (PIN itself is not stored)</li>
+                    <li><strong>Noble Ledger Data:</strong> Time spent on websites (domain names and duration only) to
+                        help you understand your browsing patterns. This data is categorized into "Seeds" (productive
+                        sites you designate) and "Weeds" (distracting sites you designate). Tracking automatically
+                        pauses when you're idle or your screen is locked. <strong>This data never leaves your
+                            device</strong> unless you explicitly request AI analysis (see Steward AI section).</li>
                     <li><strong>Account & Sync Data:</strong> To allow for premium recovery and cross-device syncing, we
                         may store an anonymous user identifier derived from your Chrome profile (if signed in) and/or
                         your email address (if provided for backup).</li>
@@ -135,28 +575,65 @@
                     <li>"Victory" logs showing when you resisted temptation (theme category and encouraging verse
                         only—<strong>no URLs or browsing history</strong>)</li>
                     <li>Focus session totals (duration only—<strong>no task names or notes</strong>)</li>
+                    <li>Morning Watch check-in data (mood and focus topic only)</li>
                     <li>Rally alert messages you choose to send</li>
                     <li>Weekly summary reports (aggregate stats, not browsing details)</li>
                     <li><strong>Recovery Email:</strong> If you use the "Restore Purchase" feature or "Cloud Sync", your
                         email address is securely stored to verify your license and enable data recovery across devices.
                     </li>
                 </ul>
-                <p>If you enable optional analytics:</p>
+                <p><strong>Optional Analytics:</strong> If you enable optional analytics:</p>
                 <ul>
                     <li>Anonymous usage patterns (feature usage, session counts)</li>
                     <li>No personal information or browsing history</li>
                 </ul>
 
-                <h2>Data We Do NOT Collect</h2>
+                <h2>Data We Do NOT Collect or Transmit</h2>
                 <div class="privacy-not-collected">
                     <ul>
-                        <li>❌ Browsing history</li>
-                        <li>❌ URLs of blocked sites you attempt to visit</li>
-                        <li>❌ Personal identification information</li>
-                        <li>❌ Content of web pages you visit</li>
-                        <li>❌ Passwords (only encrypted hashes)</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Browsing history transmitted to our servers</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> URLs of blocked sites you attempt to visit</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Personal identification information (beyond email if you provide it)</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Content of web pages you visit</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Passwords or PINs (only encrypted hashes)</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Bypass reasons or personal reflections (unless you enable Shield Partner)
+                        </li>
                     </ul>
                 </div>
+                <p><strong>Note:</strong> The Noble Ledger feature tracks domain names and time locally on your device
+                    to provide productivity insights. This data is never transmitted to Verse Guard servers. It may be
+                    included in AI analysis requests if you explicitly use the "Steward's Counsel" feature (see below).
+                </p>
 
                 <h2>How We Use Your Data</h2>
                 <ul>
@@ -172,15 +649,29 @@
                 <h2>Data Security</h2>
                 <ul>
                     <li>All sensitive data stored locally using Chrome's secure storage APIs</li>
-                    <li>Password protection uses SHA-256 hashing</li>
+                    <li>PIN protection uses SHA-256 hashing</li>
                     <li>Firebase connections use HTTPS encryption</li>
                     <li>No data transmitted without user action</li>
                 </ul>
 
                 <h2>Third-Party Services</h2>
 
+                <h3>Lemon Squeezy (Payment Processor)</h3>
+                <p>Used for: Processing Premium subscription payments<br>
+                    Data shared: Email address, payment information (handled directly by Lemon Squeezy—we never see your
+                    full card details)<br>
+                    Privacy Policy: <a href="https://www.lemonsqueezy.com/privacy" target="_blank"
+                        rel="noopener">https://www.lemonsqueezy.com/privacy</a></p>
+
+                <h3>Chrome Identity API</h3>
+                <p>Used for: Generating a unique, anonymous identifier for Premium license verification and cloud
+                    sync<br>
+                    Data accessed: Your Chrome profile's unique ID (not your name, email, or browsing data)<br>
+                    Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank"
+                        rel="noopener">https://policies.google.com/privacy</a></p>
+
                 <h3>Firebase (Google)</h3>
-                <p>Used for: Shield Partner feature, optional analytics<br>
+                <p>Used for: Shield Partner feature, cloud backup, optional analytics<br>
                     Privacy Policy: <a href="https://firebase.google.com/support/privacy" target="_blank"
                         rel="noopener">https://firebase.google.com/support/privacy</a></p>
 
@@ -190,11 +681,21 @@
                         rel="noopener">https://policies.google.com/privacy</a></p>
 
                 <h3>Google Gemini API (Steward AI)</h3>
-                <p>Used for: AI-powered "Order My Steps" task ordering, focus suggestions, and Stewardship Reports<br>
+                <p>Used for: AI-powered "Order My Steps" task ordering, focus suggestions, Noble Ledger pattern analysis
+                    ("Steward's Counsel"), and Stewardship Reports<br>
                     Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank"
                         rel="noopener">https://policies.google.com/privacy</a></p>
 
-                <h2>🤖 AI & Data Processing (Steward AI)</h2>
+                <h2>
+                    <span class="icon-inline icon-gold">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                    </span>
+                    AI & Data Processing (Steward AI)
+                </h2>
                 <p>Verse Guard includes optional AI-powered features through our "Steward AI" functionality. Here's
                     exactly how it works:</p>
 
@@ -203,23 +704,52 @@
                     <li><strong>Goals and tasks</strong> you explicitly enter in "Order My Steps"</li>
                     <li><strong>Focus session context</strong> (task name and duration) for AI suggestions</li>
                     <li><strong>Aggregated focus statistics</strong> for Weekly Stewardship Reports</li>
+                    <li><strong>Noble Ledger summaries</strong> (domain names and time spent) when you click "Ask the
+                        Steward" in the Steward's Counsel card. This helps the AI provide personalized productivity
+                        insights.</li>
                 </ul>
 
                 <h3>What Is NOT Sent to AI</h3>
                 <div class="privacy-not-collected">
                     <ul>
-                        <li>❌ Your name, email, or any personal identifiers</li>
-                        <li>❌ Browsing history or URLs</li>
-                        <li>❌ Diary entries or personal reflections</li>
-                        <li>❌ Blocked site information</li>
-                        <li>❌ Any data without your explicit action</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Your name, email, or any personal identifiers</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Full browsing history (only aggregated domain/time data you explicitly
+                            request analysis for)</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Diary entries or personal reflections</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Blocked site information or bypass reasons</li>
+                        <li><span class="icon-inline icon-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg></span> Any data without your explicit action</li>
                     </ul>
                 </div>
 
                 <h3>How AI Data Is Handled</h3>
                 <ul>
-                    <li><strong>User-initiated only:</strong> Data is only sent when you click "Order My Steps" or
-                        generate a report</li>
+                    <li><strong>User-initiated only:</strong> Data is only sent when you click "Order My Steps," "Ask
+                        the Steward," or generate a report</li>
                     <li><strong>No storage:</strong> We do not store the data sent to Gemini after receiving the
                         response</li>
                     <li><strong>No training:</strong> Your data is not used to train AI models</li>
@@ -230,33 +760,58 @@
                     time with biblical wisdom—not to collect or monetize your data. You can use Verse Guard's full
                     blocking and focus features without ever touching AI features.</p>
 
-                <div class="privacy-highlight"
-                    style="background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.2);">
-                    <p><strong>📜 Limited Use Disclosure:</strong> Verse Guard's use and transfer to any other app of
+                <div class="privacy-highlight-box">
+                    <h2>
+                        <span class="icon-inline icon-shield">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10 9 9 9 8 9" />
+                            </svg>
+                        </span>
+                        Compliance Statements
+                    </h2>
+                    <p><strong>Limited Use Disclosure:</strong> Verse Guard's use and transfer to any other app of
                         information received from Google APIs will adhere to
                         <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use/"
-                            target="_blank" rel="noopener">Google Web Store User Data Policy</a>,
+                            target="_blank" rel="noopener">Google API Services User Data Policy</a>,
                         including the Limited Use requirements.
                     </p>
-                    <p style="margin-top: var(--space-4);"><strong>🚫 Data Sale Prohibition:</strong> Verse Guard
+                    <p style="margin-top: var(--space-4);"><strong>Data Sale Prohibition:</strong> Verse Guard
                         certifies that your data is
                         <strong>not being sold</strong> to third parties, outside of the approved use cases, and is not
-                        being used or transferred for purposes that are unrelated to the item's core function.
+                        being used or transferred for purposes that are unrelated to the item's core functionality.
                     </p>
                 </div>
 
                 <h2>Your Rights</h2>
                 <p>You can:</p>
                 <ul>
-                    <li><strong>Export</strong> your data using the backup feature</li>
-                    <li><strong>Delete</strong> all data by uninstalling the extension</li>
-                    <li><strong>Disable</strong> analytics in settings</li>
+                    <li><strong>Export</strong> your data using the backup feature in Settings</li>
+                    <li><strong>Delete</strong> all local data by uninstalling the extension</li>
+                    <li><strong>Disable</strong> analytics in Settings</li>
                     <li><strong>Opt out</strong> of Shield Partner at any time</li>
+                    <li><strong>Request deletion of cloud-stored data:</strong> Email <a
+                            href="mailto:team.verseguard.app@gmail.com">team.verseguard.app@gmail.com</a> with subject
+                        "Data Deletion Request" and we will remove your Shield Partner data, cloud backups, and license
+                        records within 30 days.</li>
                 </ul>
+                <p>For EU residents (GDPR) or California residents (CCPA): You have the right to access, correct, or
+                    delete your personal data. Contact us at <a
+                        href="mailto:team.verseguard.app@gmail.com">team.verseguard.app@gmail.com</a> with your request.
+                </p>
 
                 <h2>Children's Privacy</h2>
-                <p>Verse Guard includes a Student Mode designed for younger users with parental controls. No data from
-                    minors is collected or shared externally.</p>
+                <p>Verse Guard includes a Student Mode designed for younger users with parental controls.</p>
+                <ul>
+                    <li>Student Mode is set up by a parent or guardian with a PIN-protected configuration</li>
+                    <li>No data from minors is collected or shared externally</li>
+                    <li>All tracking and blocking occurs locally on the device</li>
+                    <li>Parents can view activity through the local extension interface only</li>
+                </ul>
 
                 <h2>Changes to This Policy</h2>
                 <p>We will update this policy as needed and note the "Last Updated" date. Significant changes will be
@@ -264,25 +819,45 @@
 
                 <h2>Contact</h2>
                 <p>For privacy questions or concerns:<br>
-                    Email: <a href="mailto:stewardguard7@gmail.com">stewardguard7@gmail.com</a></p>
+                    Email: <a href="mailto:team.verseguard.app@gmail.com">team.verseguard.app@gmail.com</a></p>
 
                 <!-- FAQ Section -->
                 <div class="privacy-faq">
-                    <h2>❓ FAQ: "How Do I Know You Aren't Spying?"</h2>
+                    <h2>
+                        <span class="icon-inline icon-gold">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                        </span>
+                        FAQ: "How Do I Know You Aren't Spying?"
+                    </h2>
 
                     <div class="faq-item">
                         <p><strong>Q: Why do you need "Read and change all your data on the websites you
                                 visit"?</strong></p>
                         <p>A: This permission is required for <em>any</em> content blocker to intercept page navigation.
                             We use it to redirect blocked sites to Scripture—that's all. We never record or transmit the
-                            URLs you visit.</p>
+                            URLs you visit to our servers.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <p><strong>Q: What about the Noble Ledger? Doesn't that track my browsing?</strong></p>
+                        <p>A: Yes, but only locally on your device. The Noble Ledger records which domains you visit and
+                            for how long so you can see your own productivity patterns. This data is stored in Chrome's
+                            local storage and is never sent to Verse Guard. The only exception is if you explicitly
+                            click "Ask the Steward" to get AI insights—then a summary is sent to Google's Gemini API
+                            (not to us) for analysis.</p>
                     </div>
 
                     <div class="faq-item">
                         <p><strong>Q: Can I verify this?</strong></p>
                         <p>A: Yes! Verse Guard is built on <strong>Manifest V3</strong>, Chrome's latest privacy
                             standard. You can inspect our network requests in DevTools—we only communicate with Firebase
-                            for Account Sync and Shield Partner features. No browsing data ever leaves your extension.
+                            for Account Sync and Shield Partner features, and with Google's Gemini API when you use
+                            Steward AI features. No browsing data ever leaves your browser without your explicit action.
                         </p>
                     </div>
 
@@ -295,11 +870,11 @@
                 </div>
 
                 <p class="privacy-footer-note">
-                    <em>Verse Guard is committed to being a trustworthy steward of your digital life.</em>
+                    Guard your heart. Guard your mind. Verse Guard.
                 </p>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -318,16 +893,16 @@
             </div>
             <div class="footer-column">
                 <h4>Support</h4>
-                <a href="mailto:stewardguard7@gmail.com">Contact Us</a>
+                <a href="mailto:team.verseguard.app@gmail.com">Contact Us</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Verse Guard. All rights reserved. Built with ❤️ for the Kingdom.</p>
+            <p>© 2026 Verse Guard. All rights reserved. Built with love for the Kingdom.</p>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect (already scrolled by default on this page)
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
