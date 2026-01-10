@@ -125,7 +125,7 @@ New users can try all Premium features free for 7 days — no credit card requir
 ### ⚔️ Vanguard Founders (First 100)
 Early supporters get exclusive benefits with code **GENESIS**:
 - **1 Year Free Premium** — Full access at no cost
-- **Price-Locked Renewals** — Renew at launch prices forever
+- **Price-Locked Renewals** — Renew at Founder prices forever
 - **Unique Guardian Number** — Claim your spot (#1-100)
 - **Exclusive King's Guard Theme** — Black & gold founder theme
 - **♞ Vanguard Trophy & Badge** — Permanent recognition
