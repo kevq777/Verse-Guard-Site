@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Verse Guard</title>
+    <meta name="description"
+        content="See what's new in Verse Guard. View the latest updates, features, and improvements to your faith-based digital wellness companion.">
+
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://verseguard.app/changelog">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/icon_48.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="assets/icon_128.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .changelog-page {
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .changelog-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .changelog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .changelog-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .changelog-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .changelog-subtitle {
+            color: var(--color-text-muted);
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        /* Release Entry Styles */
+        .release-entry {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-base);
+        }
+
+        .release-entry:hover {
+            border-color: rgba(240, 193, 75, 0.3);
+            box-shadow: var(--shadow-md);
+        }
+
+        .release-entry.latest {
+            border-color: var(--color-gold);
+            background: linear-gradient(135deg, rgba(240, 193, 75, 0.08) 0%, var(--color-bg-card) 100%);
+        }
+
+        .release-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .release-version {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .release-date {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .release-badge {
+            background: var(--gradient-gold);
+            color: #1a1a1a;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .release-tagline {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--color-gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .release-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .highlight-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-full);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        .highlight-pill .icon {
+            font-size: 1rem;
+        }
+
+        .release-details {
+            border-top: 1px solid var(--color-border);
+            padding-top: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .release-details h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .release-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .release-details li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.5;
+        }
+
+        .release-details li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-top: 2rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .changelog-page {
+                padding-top: 100px;
+            }
+
+            .release-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .release-entry {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <img src="assets/icon_48.png" alt="Verse Guard" class="logo-icon">
+                <span>Verse Guard</span>
+            </a>
+            <div class="nav-links nav-links-desktop">
+                <a href="/#features">Features</a>
+                <a href="/#philosophy">Philosophy</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="support.html">Support</a>
+                <a href="https://chromewebstore.google.com/detail/verse-guard-scripture-pow/cabfajlgoelocboobcopolabnkhckjil"
+                    class="btn btn-primary" target="_blank">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="changelog-page">
+        <div class="container changelog-container">
+            <div class="changelog-header">
+                <div class="changelog-icon">📜</div>
+                <h1 class="changelog-title">Changelog</h1>
+                <p class="changelog-subtitle">
+                    A history of updates, new features, and improvements to Verse Guard.
+                </p>
+            </div>
+
+            <!-- v1.2.17 -->
+            <article class="release-entry latest">
+                <div class="release-header">
+                    <span class="release-version">v1.2.17</span>
+                    <span class="release-date">January 12, 2026</span>
+                    <span class="release-badge">Latest</span>
+                </div>
+                <p class="release-tagline">Guard Analytics, The Golden Cord & My Calling</p>
+
+                <div class="release-highlights">
+                    <span class="highlight-pill"><span class="icon">⚡</span> My Calling</span>
+                    <span class="highlight-pill"><span class="icon">📊</span> Guard Analytics</span>
+                    <span class="highlight-pill"><span class="icon">⚔️</span> Shield Partner Redesign</span>
+                    <span class="highlight-pill"><span class="icon">🔒</span> Nuclear Mode Fixes</span>
+                </div>
+
+                <div class="release-details">
+                    <h4>Details</h4>
+                    <ul>
+                        <li><strong>My Calling:</strong> Set your purpose anchor in Settings → Tools. When blocked,
+                            you'll see 'Remember Your Calling' to refocus on your goals instead of temptation.</li>
+                        <li><strong>Guard Analytics:</strong> Explore YTD Average, Most Tempted Hour, and Victory Rates
+                            with a new premium dashboard.</li>
+                        <li><strong>Shield Partner:</strong> Complete premium redesign featuring the 'Golden Cord'
+                            aesthetic and improved status tracking.</li>
+                        <li><strong>Nuclear Mode:</strong> Fixed critical race conditions ensuring reliable lockdown
+                            activation.</li>
+                        <li><strong>Performance:</strong> Resolved purity streak counters, fixed CSP issues, and
+                            optimized alarms.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- v1.2.12 -->
+            <article class="release-entry">
+                <div class="release-header">
+                    <span class="release-version">v1.2.12</span>
+                    <span class="release-date">January 8, 2026</span>
+                </div>
+                <p class="release-tagline">Guard Analytics Enhancement</p>
+
+                <div class="release-highlights">
+                    <span class="highlight-pill"><span class="icon">📊</span> Premium Analytics</span>
+                    <span class="highlight-pill"><span class="icon">ℹ️</span> Info Buttons</span>
+                    <span class="highlight-pill"><span class="icon">🎨</span> UI Polish</span>
+                </div>
+
+                <div class="release-details">
+                    <h4>Details</h4>
+                    <ul>
+                        <li>Premium-gated advanced analytics (YTD, insights).</li>
+                        <li>New info buttons with detailed feature explanations.</li>
+                        <li>Fixed tooltips in options page.</li>
+                        <li>Consistent Outfit font across headers.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- v1.2.11 -->
+            <article class="release-entry">
+                <div class="release-header">
+                    <span class="release-version">v1.2.11</span>
+                    <span class="release-date">January 8, 2026</span>
+                </div>
+                <p class="release-tagline">Shield Partner Strict Mode</p>
+
+                <div class="release-highlights">
+                    <span class="highlight-pill"><span class="icon">⚔️</span> Strict Mode</span>
+                    <span class="highlight-pill"><span class="icon">🔒</span> Any Bypass Resets</span>
+                    <span class="highlight-pill"><span class="icon">🤝</span> Accountability</span>
+                </div>
+
+                <div class="release-details">
+                    <h4>Details</h4>
+                    <ul>
+                        <li>Strict Mode toggle for covenant chain resets.</li>
+                        <li>Chain breaks on ANY bypass (not just dark weeds).</li>
+                        <li>Enhanced partnership accountability.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- v1.2.10 -->
+            <article class="release-entry">
+                <div class="release-header">
+                    <span class="release-version">v1.2.10</span>
+                    <span class="release-date">January 7, 2026</span>
+                </div>
+                <p class="release-tagline">Guard Analytics Heatmap</p>
+
+                <div class="release-highlights">
+                    <span class="highlight-pill"><span class="icon">📅</span> Month Navigation</span>
+                    <span class="highlight-pill"><span class="icon">📈</span> Dual Scores</span>
+                    <span class="highlight-pill"><span class="icon">🔥</span> Purity Streaks</span>
+                </div>
+
+                <div class="release-details">
+                    <h4>Details</h4>
+                    <ul>
+                        <li>Month navigation for premium users.</li>
+                        <li>Dual score display (Monthly + YTD).</li>
+                        <li>Purity streaks tracking.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- v1.2.0 -->
+            <article class="release-entry">
+                <div class="release-header">
+                    <span class="release-version">v1.2.0</span>
+                    <span class="release-date">January 5, 2026</span>
+                </div>
+                <p class="release-tagline">Major Refresh</p>
+
+                <div class="release-highlights">
+                    <span class="highlight-pill"><span class="icon">🎮</span> Gamification</span>
+                    <span class="highlight-pill"><span class="icon">🏛️</span> Noble Ledger</span>
+                    <span class="highlight-pill"><span class="icon">🛡️</span> Shield Partner</span>
+                    <span class="highlight-pill"><span class="icon">📖</span> Bible Trivia</span>
+                </div>
+
+                <div class="release-details">
+                    <h4>Details</h4>
+                    <ul>
+                        <li>Full gamification system.</li>
+                        <li>Noble Ledger (Seeds & Weeds tracking).</li>
+                        <li>Shield Partner for accountability.</li>
+                        <li>Bible Trivia with daily tests.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2025-2026 Verse Guard. All rights reserved. Built with ❤️ for the Kingdom.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
