@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, Guardian! - Verse Guard</title>
+    <meta name="description"
+        content="Welcome to Verse Guard. Begin your journey toward intentional, Christ-centered internet use.">
+
+    <!-- Prevent indexing (internal extension page) -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/icon_48.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="assets/icon_128.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .welcome-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: var(--gradient-cosmic);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Reusing Hero Decorations for Beauty */
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: blob 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .hero-blob-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(37, 99, 235, 0.15);
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-blob-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(14, 165, 233, 0.1);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .stars {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 50px 160px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0, 0, 0, 0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .sky-cross {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 40px;
+            height: 60px;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .cross-vertical {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+            box-shadow: var(--glow-gold);
+        }
+
+        .cross-horizontal {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+            box-shadow: var(--glow-gold);
+        }
+
+        .welcome-container {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            background: rgba(15, 20, 31, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: var(--radius-2xl);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .welcome-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .welcome-title {
+            font-family: var(--font-logo);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+            letter-spacing: 0.05em;
+        }
+
+        .welcome-message {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            font-family: var(--font-body);
+        }
+
+        .welcome-instruction {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--color-bg-glass);
+            border: 1px solid var(--color-primary);
+            border-radius: var(--radius-xl);
+            padding: 1.25rem 2rem;
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            margin-bottom: 3rem;
+            box-shadow: var(--glow-blue);
+        }
+
+        .welcome-instruction .arrow {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            animation: bounceRight 2s infinite;
+        }
+
+        @keyframes bounceRight {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(0);
+            }
+
+            40% {
+                transform: translateX(10px);
+            }
+
+            60% {
+                transform: translateX(5px);
+            }
+        }
+
+        .welcome-verse {
+            font-family: var(--font-scripture);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--color-gold);
+            line-height: 1.8;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .welcome-verse::before,
+        .welcome-verse::after {
+            content: '“';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .welcome-verse::before {
+            left: -10px;
+            top: -20px;
+        }
+
+        .welcome-verse::after {
+            content: '”';
+            right: -10px;
+            bottom: -40px;
+        }
+
+        .welcome-verse cite {
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .welcome-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .welcome-instruction {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="welcome-page">
+        <!-- Background Elements -->
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="stars"></div>
+
+        <div class="sky-cross">
+            <div class="cross-vertical"></div>
+            <div class="cross-horizontal"></div>
+        </div>
+
+        <div class="welcome-container">
+            <div class="welcome-icon">🛡️</div>
+            <h1 class="welcome-title"><span class="gradient-text">Welcome,</span> Guardian!</h1>
+            <p class="welcome-message">
+                Thank you for installing Verse Guard.<br>
+                May God guide you on your digital journey.
+            </p>
+
+            <div class="welcome-instruction">
+                <span class="arrow">→</span>
+                <span>Use the side panel on the right to begin your focused session.</span>
+            </div>
+
+            <blockquote class="welcome-verse">
+                In all your ways acknowledge Him, and He will make your paths straight.
+                <cite>— Proverbs 3:6</cite>
+            </blockquote>
+        </div>
+    </section>
+</body>
+
+</html>
